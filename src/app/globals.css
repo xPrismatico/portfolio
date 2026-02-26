@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/* 1. Definimos el Tema y vinculamos variables CSS a clases de Tailwind */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-border: var(--border);
+
+  /* Fuentes de Next.js */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* 2. Variables de Color (Sistema HSL para poder manipular opacidades) */
+:root {
+  /* MODO CLARO (Light) */
+  --background: hsl(0 0% 100%);          /* Blanco Puro */
+  --foreground: hsl(222 47% 11%);        /* Azul muy oscuro (Casi negro) */
+  
+  --primary: hsl(221 83% 53%);           /* Azul Vibrante */
+  --primary-foreground: hsl(210 40% 98%); /* Texto blanco sobre botón azul */
+  
+  --muted: hsl(210 40% 96.1%);           /* Gris azulado muy suave */
+  --muted-foreground: hsl(215.4 16.3% 46.9%);
+  
+  --border: hsl(214.3 31.8% 91.4%);
+}
+
+/* MODO OSCURO (Dark) - Se activa cuando la clase .dark está presente en el HTML */
+.dark {
+  --background: hsl(222 47% 11%);        /* TU COLOR: Azul Profundo (Navy) */
+  --foreground: hsl(210 40% 98%);        /* Blanco suave */
+  
+  --primary: hsl(217 91% 60%);           /* TU COLOR: Azul Eléctrico */
+  --primary-foreground: hsl(222 47% 11%);
+  
+  --muted: hsl(217.2 32.6% 17.5%);       /* Azul oscuro desaturado */
+  --muted-foreground: hsl(215 20.2% 65.1%);
+  
+  --border: hsl(217.2 32.6% 17.5%);
+}
+
+/* 3. Estilos Base */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  /* Transición suave al cambiar de tema */
+  transition-property: background-color, color, border-color;
+  transition-duration: 300ms;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
