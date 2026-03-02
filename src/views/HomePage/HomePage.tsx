@@ -1,49 +1,52 @@
-import React from 'react';
+"use client";
 
-// Estos componentes los iremos creando, por ahora pueden ser divs simples
-// import Hero from '@/components/sections/Hero';
-// import About from '@/components/sections/About';
-// ... etc
+import React from 'react';
+import Hero from '@/components/sections/Hero';
+import SectionTitle from '@/components/ui/SectionTitle';
+import { useLanguage } from '@/contexts/LanguageContext';
+import Skills from '@/components/sections/Skills';
+import About from '../../components/sections/About';
+import Projects from '../../components/sections/Projects';
+import Contact from '@/components/sections/Contact';
+import Footer from '@/components/layout/Footer';
+import ScrollToTop from '@/components/ui/ScrollToTop';
+import { Certification } from '../../interfaces/index';
+import Certifications from '@/components/sections/Certifications';
 
 export default function HomePage() {
+  const { t } = useLanguage();
+
   return (
-    <div className="flex flex-col gap-20 pb-20">
+    // Quitamos pb-20 y usamos el espaciado natural de las secciones
+    <div className="flex flex-col w-full px-5 py-2">
       
-      {/* Hero Section (No necesita ID en navbar normalmente, es el inicio) */}
-      <section id="hero" className="min-h-screen flex items-center justify-center bg-muted/20">
-        <h1 className="text-4xl font-bold">Hero Section</h1>
-      </section>
+      {/* 1. HERO SECTION 
+          No necesita ID para navbar porque es el top, 
+          pero si quisieras un botón "Ir arriba", le podrías poner id="home" 
+      */}
+      <Hero />
 
-      {/* About Section */}
-      {/* scroll-mt-20 es CLAVE: hace que el scroll pare un poco antes para que se vea el título */}
-      <section id="about" className="scroll-mt-20 min-h-[80vh] container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-4 text-primary">Sobre mí</h2>
-        <p>Contenido sobre mí...</p>
-      </section>
+      {/* 2. ABOUT SECTION */}
+      <About />
 
-      {/* Skills Section */}
-      <section id="skills" className="scroll-mt-20 min-h-[80vh] container mx-auto px-4 bg-muted/10">
-        <h2 className="text-3xl font-bold mb-4 text-primary">Habilidades</h2>
-        <p>Lista de habilidades...</p>
-      </section>
+      {/* 3. SKILLS SECTION (Fondo alternado) */}
+      <Skills />
 
-      {/* Experience Section */}
-      <section id="experience" className="scroll-mt-20 min-h-[80vh] container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-4 text-primary">Experiencia</h2>
-        <p>Mi trayectoria...</p>
-      </section>
+      {/* 4. EXPERIENCE SECTION */}
 
-      {/* Projects Section */}
-      <section id="projects" className="scroll-mt-20 min-h-[80vh] container mx-auto px-4 bg-muted/10">
-        <h2 className="text-3xl font-bold mb-4 text-primary">Proyectos</h2>
-        <p>Mis trabajos...</p>
-      </section>
+      {/* 5. PROJECTS SECTION (Fondo alternado) */}
+      <Projects />
 
-      {/* Contact Section */}
-      <section id="contact" className="scroll-mt-20 min-h-[50vh] container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-4 text-primary">Contacto</h2>
-        <p>Formulario o email...</p>
-      </section>
+      {/* 6. CERTIFICATIONS SECTION */}
+      <Certifications />
+
+      {/* 7. CONTACT SECTION */}
+      <Contact />
+      
+      {/* 7. FOOTER */}
+      <Footer />
+
+      <ScrollToTop />
 
     </div>
   );

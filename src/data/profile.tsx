@@ -1,0 +1,395 @@
+// src/data/profile.tsx
+
+import { 
+  Github, 
+  Linkedin, 
+  Mail, 
+  Code2, 
+  Database, 
+  Layout, 
+  Settings, 
+  Server, 
+  Smartphone,
+  Brain,
+  Rocket,
+  Users,
+  Award,
+  Globe,     
+  Gamepad2,  
+  Terminal,  
+  Monitor,    
+  Eye         
+} from "lucide-react";
+import { Certification, Experience, Project, SkillCategory, SocialLink, Stat } from "@/interfaces";
+
+// --- CONSTANTES DE RUTAS (Tus carpetas en public) ---
+// Esto hace que si cambias la carpeta mañana, solo cambias esto aquí
+export const PATHS = {
+  cv: "/cv/CV.pdf",                 // Archivo en public/cv/CV.pdf
+  profile: "/profile/me.jpg",       // Foto en public/profile/me.jpg
+  projects: "/projects",            // Carpeta base de proyectos
+};
+
+// --- MAPEO DE ICONOS SVG (NUEVO) ---
+// Vincula el nombre exacto del tag con la ruta en public/icons
+export const TECH_ICONS: Record<string, string> = {
+  "Angular": "/icons/angular.svg",
+  ".NET": "/icons/dotnet.svg",
+  "Ionic": "/icons/ionic-icon.svg",
+  "TypeScript": "/icons/typescript-icon.svg",
+  "C#": "/icons/CSharp.svg",
+  "Tailwind": "/icons/tailwind.svg",
+  "CSS": "/icons/css.svg",
+  "HTML": "/icons/html-5.svg",
+  "Next.js": "/icons/nextjs-icon.svg",
+  "FastAPI": "/icons/fastapi.svg",
+  "Python": "/icons/python.svg",
+  "PostgreSQL": "/icons/postgresql.svg",
+  "MySQL": "/icons/mysql.svg",
+  "Unity": "/icons/unity.svg",
+  "Java": "/icons/java.svg",
+  "Tailwind CSS": "/icons/tailwind.svg",
+
+  // Agrega aquí otros si tienes el archivo SVG, si no, se mostrará solo texto
+};
+
+
+// --- DATOS PERSONALES CENTRALIZADOS ---
+export const personalInfo = {
+  name: "Samuel Fuentes Ávila",
+  profileImage: PATHS.profile,
+  role: {
+    es: "Ingeniero de Software y Desarrollador Fullstack",
+    en: "Software Engineer & Fullstack Developer"
+  },
+  location: "Antofagasta, Chile",
+  mapUrl: "https://www.google.com/maps/place/Antofagasta", // Enlace a Maps
+  about: {
+    es: "Estudiante apasionado por la ingeniería de software, desarrollo web y ciencia de datos. Tengo experiencia en desarrollo web/móvil, análisis de datos y sistemas a medida.",
+    en: "Passionate student of software engineering, web development, and data science. Experienced in web/mobile development, data analysis, and custom systems."
+  },
+  cvUrl: PATHS.cv,
+  
+  // Nuevos datos de contacto directo para no escribirlos a mano
+  contact: {
+    email: "srfuentesavila@gmail.com",
+    phone: "+56 9 5839 1079",
+    phoneUrl: "tel:+56958391079", // Formato para llamar al hacer clic
+  }
+};
+
+// --- REDES SOCIALES ---
+export const socialLinks: SocialLink[] = [
+  {
+    name: "GitHub",
+    url: "https://github.com/xPrismatico",
+    icon: Github,
+  },
+  {
+    name: "LinkedIn",
+    // Asegúrate de usar https:// para que funcione como enlace externo
+    url: "https://www.linkedin.com/in/samuel-fuentes-ávila", 
+    icon: Linkedin,
+  },
+  {
+    name: "Email",
+    url: `mailto:${personalInfo.contact.email}`,
+    icon: Mail,
+  },
+];
+
+// --- ESTADÍSTICAS (Hero / About) ---
+export const stats: Stat[] = [
+  {
+    value: "15+",
+    label: { es: "Proyectos", en: "Projects" },
+    icon: Code2,
+  },
+  {
+    value: "4+",
+    label: { es: "Años Estudiando", en: "Years Studying" },
+    icon: Brain,
+  },
+  {
+    value: "3",
+    label: { es: "Hackatones", en: "Hackathons" },
+    icon: Rocket,
+  },
+];
+
+// --- HABILIDADES (Organizadas por Categoría) ---
+export const skillsData: SkillCategory[] = [
+  {
+    id: "frontend",
+    title: { es: "Frontend", en: "Frontend" },
+    skills: [
+      { name: "Next.js", icon: Layout, color: "#000000" }, // Puedes buscar iconos específicos de marcas luego
+      { name: "React", icon: Code2, color: "#61DAFB" },
+      { name: "Tailwind CSS", icon: Layout, color: "#38B2AC" },
+      { name: "TypeScript", icon: Code2, color: "#3178C6" },
+      { name: "HTML/CSS", icon: Layout, color: "#E34F26" },
+    ],
+  },
+  {
+    id: "backend",
+    title: { es: "Backend", en: "Backend" },
+    skills: [
+      { name: ".NET", icon: Server, color: "#512BD4" },
+      { name: "Python", icon: Code2, color: "#3776AB" },
+      { name: "Node.js", icon: Server, color: "#339933" },
+      { name: "SQL", icon: Database, color: "#4479A1" },
+    ],
+  },
+  {
+    id: "tools",
+    title: { es: "Herramientas", en: "Tools" },
+    skills: [
+      { name: "Git & GitHub", icon: Github },
+      { name: "Docker", icon: Server },
+      { name: "Figma", icon: Layout },
+      { name: "Postman", icon: Settings },
+    ],
+  },
+  {
+    id: "soft",
+    title: { es: "Habilidades Blandas", en: "Soft Skills" },
+    skills: [
+      { name: "Trabajo en Equipo", icon: Users },
+      { name: "Comunicación", icon: Users },
+      { name: "Liderazgo", icon: Award },
+      { name: "Resolución de Problemas", icon: Brain },
+    ],
+  },
+    {
+    id: "core",
+    title: { es: "Competencias Core", en: "Core Competencies" },
+    skills: [
+      { name: "POO", icon: Code2, color: "#eab308" }, // Code2 como genérico
+      { name: "Scrum / Agile", icon: Users, color: "#f97316" },
+      { name: "UML Modeling", icon: Layout, color: "#6366f1" },
+      { name: "Clean Code", icon: Code2, color: "#10b981" },
+      { name: "Data Structures", icon: Database, color: "#ec4899" },
+    ],
+  },
+  
+];
+
+// --- PROYECTOS ---
+export const projectsData: Project[] = [
+    {
+    id: "vyv",
+    title: "Sitio corporativo con cotizaciones VyV Refrigeración",
+    description: {
+      es: "Sitio web corporativo con catálogo de productos, gestión de cotizaciones y de productos, solicitado por la empresa Refrigeración y Climatizacion VyV..",
+      en: "Corporate website with product catalog, quotation management and product management, requested by the company Refrigeración y Climatizacion VyV.",
+    },
+    image: `${PATHS.projects}/vyvrefrigeracion.jpg`,
+    tags: ["Next.js", "TypeScript", ".NET", "PostgreSQL", "SQL", "Tailwind CSS"],
+    actions: [
+      {
+        label: { es: "Ver Sitio", en: "View Site" },
+        url: "https://vyvrefrigeracion.cl",
+        icon: Globe,
+      },
+    ],
+    featured: true,
+  },
+    {
+    id: "montecristo",
+    title: "E-commerce MonteCristo",
+    description: {
+      es: "Plataforma e-commerce completa con gestión de inventario, cotizaciones y panel administrativo. Implementación de carrito de compras, procesamiento de pedidos y sistema de búsqueda avanzada.",
+      en: "Complete e-commerce platform with inventory management, quotes, and admin panel. Implementation of shopping cart, order processing, and advanced search system.",
+    },
+    image: `${PATHS.projects}/ecommerce.jpg`,
+    tags: ["Next.js", "TypeScript", ".NET", "SQL", "Tailwind CSS"],
+    actions: [
+      {
+        label: { es: "Ver Demo", en: "Live Demo" },
+        url: "https://comercialmontecristo.vercel.app",
+        icon: Globe,
+      },
+    ],
+    featured: true,
+  },
+    {
+    id: "predictor-financiero",
+    title: "Predictor Financiero Inteligente",
+    description: {
+      es: "Sistema web inteligente que permite anticipar el comportamiento de pago de clientes clasificándolos por riesgo y predecir cuánto tardarán en pagar. Procesa datos históricos y se conecta a un motor de Machine Learning.",
+      en: "Intelligent web system that anticipates customer payment behavior by classifying them by risk and predicting payment time. Processes historical data and connects to a Machine Learning engine."
+    },
+    image: `${PATHS.projects}/predictorfinanciero.jpg`,
+    tags: ["Next.js", ".NET", "FastAPI", "TypeScript", "C#", "Python", "PostgreSQL", "Tailwind", "HTML", "CSS"],
+    actions: [
+      {
+        label: { es: "Frontend", en: "Frontend" },
+        url: "https://github.com/GPScript1/GPS_Frontend",
+        icon: Github,
+      },
+      {
+        label: { es: "Backend", en: "Backend" },
+        url: "https://github.com/GPScript1/GPS_API",
+        icon: Github,
+      },
+      {
+        label: { es: "IA", en: "AI" },
+        url: "https://github.com/GPScript1/fastAPI",
+        icon: Github,
+      },
+    ],
+    featured: true,
+  },
+{
+    id: "selene",
+    title: "SELENE",
+    description: {
+      es: "Videojuego 2D para PC de un solo jugador. Disparos, Puzzles, Vidas, Enemigos con patrones, Jefes, Coleccionables. Historia y Diseño (Personajes, Entorno, Interfaz).",
+      en: "Single-player 2D PC video game. Shooting, Puzzles, Lives, Patterned Enemies, Bosses, Collectibles. Story and Design (Characters, Environment, Interface)."
+    },
+    synopsis: {
+      es: "Un valiente gato debe recuperar las almas perdidas en el más allá, descubriendo islas flotantes, resolviendo puzzles, combatiendo diversos enemigos y descubriendo secretos.",
+      en: "A brave cat must recover lost souls in the afterlife, discovering floating islands, solving puzzles, fighting diverse enemies, and uncovering secrets."
+    },
+    image: `${PATHS.projects}/selene.png`,
+    tags: ["Unity", "C#", "PixelStudio"],
+    actions: [
+      { label: { es: "Repositorio", en: "Repository" }, url: "https://github.com/xPrismatico/Selene-2D", icon: Github },
+      { label: { es: "Jugar", en: "Play" }, url: "https://drive.google.com/drive/folders/1oOS4WFf2p1FOZUPFx4dj-o8R_16knsE-?usp=sharing", icon: Gamepad2 },
+    ],
+  },
+  {
+    id: "selene-vuelta-casa",
+    title: "SELENE: Vuelta a casa",
+    description: {
+      es: "Videojuego 3D para Móviles y PC. Pantalla dividida, Guardado de datos, Tienda, Edición de personaje. Modelado de Personajes, Animaciones, Interfaz y Entorno.",
+      en: "3D Mobile and PC Video Game. Split screen, Data saving, Store, Character editing. Character Modeling, Animations, Interface, and Environment."
+    },
+    synopsis: {
+      es: "Un Gato de capa roja regresa a la vida y debe volver a su hogar en un camino desafiante entre dimensiones, obstáculos y enemigos. ¡Mejora tus poderes y personaliza a tu personaje!",
+      en: "A red-caped cat returns to life and must find its way home through a challenging path across dimensions, obstacles, and enemies. Upgrade powers and customize your character!"
+    },
+    image: `${PATHS.projects}/selene2.png`,
+    tags: ["Unity", "C#", "BlockBench"],
+    actions: [
+      { label: { es: "Repositorio", en: "Repository" }, url: "https://github.com/xPrismatico/Selene-Vuelta-a-casa", icon: Github },
+      { label: { es: "Jugar", en: "Play" }, url: "https://drive.google.com/drive/folders/1RsVCCFfieG5lmR7pz2dfUTeXlvIuLkbW?usp=sharing", icon: Gamepad2 },
+    ],
+  },
+    {
+    id: "ratings-bebidas",
+    title: "Predicción de Ratings de Bebidas",
+    description: {
+      es: "Sistema de Análisis de datos para predecir ratings de bebidas extrayendo datos con Web Scrapping. Análisis exploratorio, limpieza de datos, modelos de regresión y clasificación.",
+      en: "Data Analysis system to predict beverage ratings extracting data with Web Scraping. Exploratory analysis, data cleaning, regression and classification models."
+    },
+    image: `${PATHS.projects}/datascience.png`,
+    tags: ["Python", "Scikit-learn", "Matplotlib", "Seaborn", "Selenium"],
+    actions: [
+      { label: { es: "Version 1", en: "Version 1" }, url: "https://github.com/xPrismatico/Taller1-DataScience", icon: Github },
+      { label: { es: "Version 2", en: "Version 2" }, url: "https://github.com/xPrismatico/Taller2-DataScience", icon: Github },
+    ],
+  },
+
+
+];
+
+// --- EXPERIENCIA Y EDUCACIÓN ---
+export const experienceData: Experience[] = [
+  {
+    id: "ucn",
+    type: "education",
+    company: "Universidad Católica del Norte",
+    role: { es: "Ingeniería Civil en Computación e Informática", en: "Computer Science Engineering" },
+    period: "2021 - Actualidad",
+    description: {
+      es: "Estudiante de 4º año con sólida formación en ingeniería de software.",
+      en: "4th-year student with solid training in software engineering.",
+    },
+  },
+  {
+    id: "freelance",
+    type: "work",
+    company: "Freelance",
+    role: { es: "Desarrollador Fullstack", en: "Fullstack Developer" },
+    period: "2023 - Actualidad",
+    description: {
+      es: "Desarrollo de soluciones web a medida para clientes locales.",
+      en: "Development of custom web solutions for local clients.",
+    },
+  },
+];
+
+// --- DATOS EXTRAS PARA "SOBRE MÍ" ---
+export const educationInfo = {
+  university: "Universidad Católica del Norte",
+  degree: {
+    es: "Ingeniería Civil en Computación e Informática",
+    en: "Computer Science & Informatics Engineering"
+  },
+  year: {
+    es: "4º Año • 2021 - Actualidad",
+    en: "4th Year • 2021 - Present"
+  },
+  location: "Antofagasta, Chile",
+};
+
+export const specializations = [
+  { es: "Desarrollo Full Stack", en: "Full Stack Development" },
+  { es: "Análisis de Datos", en: "Data Analysis" },
+  { es: "Machine Learning", en: "Machine Learning" },
+  { es: "Ingeniería de Software", en: "Software Engineering" },
+  { es: "Desarrollo Web/Móvil", en: "Web/Mobile Development" },
+  { es: "Sistemas a Medida", en: "Custom Systems" },
+  { es: "Prototipado y Diseño", en: "Prototyping & Design" },
+  { es: "Desarrollo de Videojuegos", en: "Game Development" },
+];
+
+// --- CERTIFICACIONES Y FORMACIÓN ---
+export const certificationsData: Certification[] = [
+  {
+    id: "bhp-heuma",
+    title: { es: "Programa Desarrollo de competencias para la empleabilidad", en: "Employability Skills Development Program" },
+    issuer: "BHP Apresto HEUMA",
+    date: "Septiembre - Diciembre 2025",
+    description: {
+      es: "Programa de desarrollo de competencias blandas y preparación para el mundo laboral.",
+      en: "Soft skills development program and preparation for the labor market."
+    },
+    type: "program"
+  },
+  {
+    id: "nextjs-udemy",
+    title: { es: "Next.js el framework de React para producción", en: "Next.js: The React Framework for Production" },
+    issuer: "Udemy",
+    date: "Octubre 2025",
+    description: {
+      es: "Curso completo sobre desarrollo web moderno con Next.js, Server Components, App Router y optimización.",
+      en: "Complete course on modern web development with Next.js, Server Components, App Router, and optimization."
+    },
+    link: "https://www.udemy.com/certificate/...", // Pon el link real si lo tienes
+    type: "course"
+  },
+  {
+    id: "ing-ucn",
+    title: { es: "Ingeniería Civil en Computación e Informática", en: "Computer Science & Informatics Engineering" },
+    issuer: "Universidad Católica del Norte (UCN)",
+    date: "2021 - Actualidad",
+    description: {
+      es: "Estudiante de 4º año con sólida formación en ingeniería de software, desarrollo web y ciencia de datos.",
+      en: "4th-year student with solid training in software engineering, web development, and data science."
+    },
+    type: "education"
+  },
+  {
+    id: "tec-donbosco",
+    title: { es: "Título Técnico Eléctrico", en: "Electrical Technician Title" },
+    issuer: "Colegio Técnico Industrial Don Bosco",
+    date: "2017 - 2020",
+    description: {
+      es: "Formación técnica en electricidad y electrónica con énfasis en resolución de problemas.",
+      en: "Technical training in electricity and electronics with emphasis on problem solving."
+    },
+    type: "education"
+  }
+];

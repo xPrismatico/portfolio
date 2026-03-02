@@ -14,7 +14,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Definimos los IDs de las secciones que vamos a espiar
-  const sectionIds = ["about", "skills", "experience", "projects", "contact"];
+  const sectionIds = ["about", "skills", "experience", "projects", "certifications", "contact"];
   const activeSection = useScrollSpy(sectionIds, 100); // 100px de offset para compensar la altura de la navbar
 
   useEffect(() => setMounted(true), []);
@@ -24,7 +24,9 @@ export default function Navbar() {
     { name: t.navbar.skills, href: "#skills", id: "skills" },
     { name: t.navbar.experience, href: "#experience", id: "experience" },
     { name: t.navbar.projects, href: "#projects", id: "projects" },
+    { name: language === 'es' ? 'Certificaciones' : 'Certifications', href: "#certifications", id: "certifications" }, 
     { name: t.navbar.contact, href: "#contact", id: "contact" },
+    
   ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

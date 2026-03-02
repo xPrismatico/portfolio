@@ -1,3 +1,5 @@
+// src/libs/dictionary.ts
+
 export const dictionary = {
   es: {
     navbar: {
