@@ -18,7 +18,7 @@ export default function HomePage() {
 
   return (
     // Quitamos pb-20 y usamos el espaciado natural de las secciones
-    <div className="flex flex-col w-full px-5 py-2">
+    <div className="flex flex-col w-full overflow-x-hidden">
       
       {/* 1. HERO SECTION 
           No necesita ID para navbar porque es el top, 

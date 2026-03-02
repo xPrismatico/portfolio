@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google"; // 1. Importamos Montserrat
 import { ThemeProvider } from "next-themes";
-import { LanguageProvider } from "@/contexts/LanguageContext"; // Asegúrate de haber creado este archivo en el paso anterior
-import Navbar from "@/components/layout/Navbar"; // Asegúrate de haber creado este archivo
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import Navbar from "@/components/layout/Navbar";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// 2. Configuramos la fuente
+const montserrat = Montserrat({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-montserrat", // Definimos el nombre de la variable CSS
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], // Opcional: cargar todos los pesos
 });
 
 export const metadata: Metadata = {
@@ -26,22 +23,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // suppressHydrationWarning es necesario para next-themes para evitar errores de coincidencia entre servidor/cliente
     <html lang="es" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground`}
+        // 3. Aplicamos la variable en el body y eliminamos las de Geist
+        className={`${montserrat.variable} antialiased min-h-screen bg-background text-foreground overflow-x-hidden font-sans`}
       >
-        {/* ThemeProvider maneja la clase 'dark' en el tag HTML */}
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <LanguageProvider>
-            
             <Navbar />
-            
-            {/* pt-16 añade padding arriba para que la navbar fija no tape el contenido */}
             <main className="flex-grow pt-16">
               {children}
             </main>
-
           </LanguageProvider>
         </ThemeProvider>
       </body>

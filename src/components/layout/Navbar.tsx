@@ -112,7 +112,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-lg p-4 flex flex-col gap-4 shadow-lg absolute w-full h-screen">
+        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-lg p-6 flex flex-col gap-4 shadow-lg absolute w-full h-screen">
           {navLinks.map((link) => (
             <a
               key={link.name}
