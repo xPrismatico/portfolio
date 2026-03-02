@@ -125,6 +125,8 @@ export const skillsData: SkillCategory[] = [
     skills: [
       { name: "Next.js", icon: Layout, color: "#000000" }, // Puedes buscar iconos específicos de marcas luego
       { name: "React", icon: Code2, color: "#61DAFB" },
+      { name: "Angular", icon: Layout, color: "#DD0031" },
+      { name: "Ionic", icon: Smartphone, color: "#3880FF" },
       { name: "Tailwind CSS", icon: Layout, color: "#38B2AC" },
       { name: "TypeScript", icon: Code2, color: "#3178C6" },
       { name: "HTML/CSS", icon: Layout, color: "#E34F26" },
@@ -135,9 +137,13 @@ export const skillsData: SkillCategory[] = [
     title: { es: "Backend", en: "Backend" },
     skills: [
       { name: ".NET", icon: Server, color: "#512BD4" },
+      { name: "FastAPI", icon: Server, color: "#009688" },
       { name: "Python", icon: Code2, color: "#3776AB" },
-      { name: "Node.js", icon: Server, color: "#339933" },
+      { name: "Java", icon: Code2, color: "#007396" },
       { name: "SQL", icon: Database, color: "#4479A1" },
+      { name: "C#", icon: Code2, color: "#239120" },
+        { name: "PostgreSQL", icon: Database, color: "#336791" },
+        { name: "MySQL", icon: Database, color: "#4479A1" },
     ],
   },
   {
@@ -148,6 +154,10 @@ export const skillsData: SkillCategory[] = [
       { name: "Docker", icon: Server },
       { name: "Figma", icon: Layout },
       { name: "Postman", icon: Settings },
+        { name: "Linux CLI", icon: Terminal },
+        { name: "Excel", icon: Layout },
+        { name: "Unity 2D/3D/AR", icon: Monitor },
+        
     ],
   },
   {
@@ -158,6 +168,8 @@ export const skillsData: SkillCategory[] = [
       { name: "Comunicación", icon: Users },
       { name: "Liderazgo", icon: Award },
       { name: "Resolución de Problemas", icon: Brain },
+        { name: "Adaptabilidad", icon: Globe },
+
     ],
   },
     {
@@ -169,6 +181,12 @@ export const skillsData: SkillCategory[] = [
       { name: "UML Modeling", icon: Layout, color: "#6366f1" },
       { name: "Clean Code", icon: Code2, color: "#10b981" },
       { name: "Data Structures", icon: Database, color: "#ec4899" },
+        { name: "Algorithms", icon: Code2, color: "#3b82f6" },
+        { name: "Web scraping", icon: Eye, color: "#8b5cf6" },
+        { name: "Optimization", icon: Settings, color: "#db2777" },
+        { name: "Design Patterns", icon: Layout, color: "#14b8a6" },
+        { name: "SOLID Principles", icon: Code2, color: "#f43f5e" },
+        { name: "Software Engineering", icon: Code2, color: "#0ea5e9" },
     ],
   },
   
