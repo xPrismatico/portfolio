@@ -22,7 +22,7 @@ export default function Navbar() {
   const navLinks = [
     { name: t.navbar.about, href: "#about", id: "about" },
     { name: t.navbar.skills, href: "#skills", id: "skills" },
-    { name: t.navbar.experience, href: "#experience", id: "experience" },
+    //{ name: t.navbar.experience, href: "#experience", id: "experience" },
     { name: t.navbar.projects, href: "#projects", id: "projects" },
     { name: language === 'es' ? 'Certificaciones' : 'Certifications', href: "#certifications", id: "certifications" }, 
     { name: t.navbar.contact, href: "#contact", id: "contact" },
