@@ -101,7 +101,7 @@ export const socialLinks: SocialLink[] = [
 // --- ESTADÍSTICAS (Hero / About) ---
 export const stats: Stat[] = [
   {
-    value: "15+",
+    value: "10+",
     label: { es: "Proyectos", en: "Projects" },
     icon: Code2,
   },
@@ -123,82 +123,88 @@ export const skillsData: SkillCategory[] = [
     id: "frontend",
     title: { es: "Frontend", en: "Frontend" },
     skills: [
-      { name: "Next.js", icon: Layout, color: "#000000" }, // Puedes buscar iconos específicos de marcas luego
-      { name: "React", icon: Code2, color: "#61DAFB" },
-      { name: "Angular", icon: Layout, color: "#DD0031" },
-      { name: "Ionic", icon: Smartphone, color: "#3880FF" },
-      { name: "Tailwind CSS", icon: Layout, color: "#38B2AC" },
-      { name: "TypeScript", icon: Code2, color: "#3178C6" },
-      { name: "HTML/CSS", icon: Layout, color: "#E34F26" },
+      { name: { es: "Next.js", en: "Next.js" }, icon: Layout, color: "#000000" },
+      { name: { es: "React", en: "React" }, icon: Code2, color: "#61DAFB" },
+      { name: { es: "Angular", en: "Angular" }, icon: Layout, color: "#DD0031" },
+      { name: { es: "Ionic", en: "Ionic" }, icon: Smartphone, color: "#3880FF" },
+      { name: { es: "Tailwind CSS", en: "Tailwind CSS" }, icon: Layout, color: "#38B2AC" },
+      { name: { es: "TypeScript", en: "TypeScript" }, icon: Code2, color: "#3178C6" },
+      { name: { es: "HTML/CSS", en: "HTML/CSS" }, icon: Layout, color: "#E34F26" },
     ],
   },
   {
     id: "backend",
     title: { es: "Backend", en: "Backend" },
     skills: [
-      { name: ".NET", icon: Server, color: "#512BD4" },
-      { name: "FastAPI", icon: Server, color: "#009688" },
-      { name: "Python", icon: Code2, color: "#3776AB" },
-      { name: "Java", icon: Code2, color: "#007396" },
-      { name: "SQL", icon: Database, color: "#4479A1" },
-      { name: "C#", icon: Code2, color: "#239120" },
-        { name: "PostgreSQL", icon: Database, color: "#336791" },
-        { name: "MySQL", icon: Database, color: "#4479A1" },
+      { name: { es: ".NET", en: ".NET" }, icon: Server, color: "#512BD4" },
+      { name: { es: "FastAPI", en: "FastAPI" }, icon: Server, color: "#009688" },
+      { name: { es: "Python", en: "Python" }, icon: Code2, color: "#3776AB" },
+      { name: { es: "Java", en: "Java" }, icon: Code2, color: "#007396" },
+      { name: { es: "C#", en: "C#" }, icon: Code2, color: "#239120" },
+    ],
+  },
+  {
+    id: "databases",
+    title: { es: "Bases de Datos", en: "Databases" },
+    skills: [
+      { name: { es: "SQL", en: "SQL" }, icon: Database, color: "#4479A1" },
+      { name: { es: "PostgreSQL", en: "PostgreSQL" }, icon: Database, color: "#336791" },
+      { name: { es: "MySQL", en: "MySQL" }, icon: Database, color: "#4479A1" },
     ],
   },
   {
     id: "tools",
     title: { es: "Herramientas", en: "Tools" },
     skills: [
-      { name: "Git & GitHub", icon: Github },
-      { name: "Docker", icon: Server },
-      { name: "Figma", icon: Layout },
-      { name: "Postman", icon: Settings },
-        { name: "Linux CLI", icon: Terminal },
-        { name: "Excel", icon: Layout },
-        { name: "Unity 2D/3D/AR", icon: Monitor },
-        
+      { name: { es: "Git & GitHub", en: "Git & GitHub" }, icon: Github, color: "#F05032" },
+      { name: { es: "Docker", en: "Docker" }, icon: Server, color: "#2496ED" },
+      { name: { es: "Figma", en: "Figma" }, icon: Layout, color: "#F24E1E" },
+      { name: { es: "Postman", en: "Postman" }, icon: Settings, color: "#FF6C37" },
+      { name: { es: "Linux CLI", en: "Linux CLI" }, icon: Terminal, color: "#FCC624" },
+      { name: { es: "Excel", en: "Excel" }, icon: Layout, color: "#217346" },
+      { name: { es: "Unity 2D/3D/AR", en: "Unity 2D/3D/AR" }, icon: Monitor, color: "#000000" },
+    ],
+  },
+  {
+    id: "core",
+    title: { es: "Competencias Core", en: "Core Competencies" },
+    skills: [
+      { name: { es: "POO", en: "OOP" }, icon: Code2, color: "#eab308" },
+      { name: { es: "Scrum / Agile", en: "Scrum / Agile" }, icon: Users, color: "#f97316" },
+      { name: { es: "Modelado UML", en: "UML Modeling" }, icon: Layout, color: "#6366f1" },
+      { name: { es: "Clean Code", en: "Clean Code" }, icon: Code2, color: "#10b981" },
+      { name: { es: "Estructuras de Datos", en: "Data Structures" }, icon: Database, color: "#ec4899" },
+      { name: { es: "Algoritmos", en: "Algorithms" }, icon: Code2, color: "#3b82f6" },
+      { name: { es: "Web scraping", en: "Web scraping" }, icon: Eye, color: "#8b5cf6" },
+      { name: { es: "Optimización", en: "Optimization" }, icon: Settings, color: "#db2777" },
+      { name: { es: "Patrones de diseño", en: "Design Patterns" }, icon: Layout, color: "#14b8a6" },
+      { name: { es: "Principios SOLID", en: "SOLID Principles" }, icon: Code2, color: "#f43f5e" },
+      { name: { es: "Ingeniería de Software", en: "Software Engineering" }, icon: Code2, color: "#0ea5e9" },
     ],
   },
   {
     id: "soft",
     title: { es: "Habilidades Blandas", en: "Soft Skills" },
     skills: [
-      { name: "Trabajo en Equipo", icon: Users },
-      { name: "Comunicación", icon: Users },
-      { name: "Liderazgo", icon: Award },
-      { name: "Resolución de Problemas", icon: Brain },
-        { name: "Adaptabilidad", icon: Globe },
-
+      { name: { es: "Trabajo en Equipo", en: "Teamwork" }, icon: Users, color: "#FF6B6B" },
+      { name: { es: "Comunicación", en: "Communication" }, icon: Users, color: "#4ECDC4" },
+      { name: { es: "Liderazgo", en: "Leadership" }, icon: Award, color: "#FFE66D" },
+      { name: { es: "Resolución de Problemas", en: "Problem Solving" }, icon: Brain, color: "#1A535C" },
+      { name: { es: "Adaptabilidad", en: "Adaptability" }, icon: Globe, color: "#FF9F1C" },
     ],
   },
-    {
-    id: "core",
-    title: { es: "Competencias Core", en: "Core Competencies" },
-    skills: [
-      { name: "POO", icon: Code2, color: "#eab308" }, // Code2 como genérico
-      { name: "Scrum / Agile", icon: Users, color: "#f97316" },
-      { name: "UML Modeling", icon: Layout, color: "#6366f1" },
-      { name: "Clean Code", icon: Code2, color: "#10b981" },
-      { name: "Data Structures", icon: Database, color: "#ec4899" },
-        { name: "Algorithms", icon: Code2, color: "#3b82f6" },
-        { name: "Web scraping", icon: Eye, color: "#8b5cf6" },
-        { name: "Optimization", icon: Settings, color: "#db2777" },
-        { name: "Design Patterns", icon: Layout, color: "#14b8a6" },
-        { name: "SOLID Principles", icon: Code2, color: "#f43f5e" },
-        { name: "Software Engineering", icon: Code2, color: "#0ea5e9" },
-    ],
-  },
-  
 ];
 
 // --- PROYECTOS ---
 export const projectsData: Project[] = [
     {
     id: "vyv",
-    title: "Sitio corporativo con cotizaciones VyV Refrigeración",
+    title: {
+      es: "Sitio web corporativo + E-commerce VyV Refrigeración",
+      en: "Corporate website with e-commerce functionality VyV Refrigeración"
+    },
     description: {
-      es: "Sitio web corporativo con catálogo de productos, gestión de cotizaciones y de productos, solicitado por la empresa Refrigeración y Climatizacion VyV..",
+      es: "Sitio web corporativo y Cotización de catálogo de productos, gestión de cotizaciones y de productos, solicitado por la empresa Refrigeración y Climatizacion VyV.",
       en: "Corporate website with product catalog, quotation management and product management, requested by the company Refrigeración y Climatizacion VyV.",
     },
     image: `${PATHS.projects}/vyvrefrigeracion.jpg`,
@@ -214,10 +220,13 @@ export const projectsData: Project[] = [
   },
     {
     id: "montecristo",
-    title: "E-commerce MonteCristo",
+    title: {
+      es: "Sitio web corporativo + E-commerce MonteCristo",
+      en: "Corporate website with e-commerce functionality MonteCristo"
+    },
     description: {
-      es: "Plataforma e-commerce completa con gestión de inventario, cotizaciones y panel administrativo. Implementación de carrito de compras, procesamiento de pedidos y sistema de búsqueda avanzada.",
-      en: "Complete e-commerce platform with inventory management, quotes, and admin panel. Implementation of shopping cart, order processing, and advanced search system.",
+      es: "Sitio web corporativo y Plataforma e-commerce completa con gestión de inventario, cotizaciones y panel administrativo. Implementación de carrito de compras, procesamiento de pedidos y sistema de búsqueda avanzada.",
+      en: "Corporate website and complete e-commerce platform with inventory management, quotes, and admin panel. Implementation of shopping cart, order processing, and advanced search system.",
     },
     image: `${PATHS.projects}/ecommerce.jpg`,
     tags: ["Next.js", "TypeScript", ".NET", "SQL", "Tailwind CSS"],
@@ -230,12 +239,38 @@ export const projectsData: Project[] = [
     ],
     featured: true,
   },
+
+    {
+    id: "bygcompras",
+    title: {
+      es: "Sistema de Compras ByG Ingeniería",
+      en: "Purchasing System for ByG Engineering"
+    },
+    description: {
+      es: "Sistema de comporas para empresa de ingeniería con contexto minero, eléctrico, industrial y construcción. Gestión de compras, proveedores, cotizaciones, órdenes de compra y usuarios. Solicitado por ByG Ingeniería.",
+      en: "Purchasing system for engineering company with mining, electrical, industrial and construction context. Management of purchases, suppliers, quotes, purchase orders and users. Requested by ByG Ingeniería.",
+    },
+    image: `${PATHS.projects}/bygsistemacompras.jpg`,
+    tags: ["Next.js", "TypeScript", ".NET", "PostgreSQL", "Tailwind CSS"],
+    actions: [
+      {
+        label: { es: "Ver Sitio", en: "View Site" },
+        url: "https://bygfrontend.vercel.app",
+        icon: Globe,
+      },
+    ],
+    featured: true,
+  },
+
     {
     id: "predictor-financiero",
-    title: "Predictor Financiero Inteligente",
+    title: {
+      es: "Predictor Financiero Inteligente",
+      en: "Intelligent Financial Predictor"
+    },
     description: {
-      es: "Sistema web inteligente que permite anticipar el comportamiento de pago de clientes clasificándolos por riesgo y predecir cuánto tardarán en pagar. Procesa datos históricos y se conecta a un motor de Machine Learning.",
-      en: "Intelligent web system that anticipates customer payment behavior by classifying them by risk and predicting payment time. Processes historical data and connects to a Machine Learning engine."
+      es: "Sistema web inteligente que permite anticipar el comportamiento de pago de clientes clasificándolos por riesgo y predecir cuánto tardarán en pagar. Procesa datos históricos y se conecta a un motor de Machine Learning. Hecho en HackaDISC en 3 días para INSECAP",
+      en: "Intelligent web system that anticipates customer payment behavior by classifying them by risk and predicting payment time. Processes historical data and connects to a Machine Learning engine. Built in 3 days for INSECAP's HackaDISC event."
     },
     image: `${PATHS.projects}/predictorfinanciero.jpg`,
     tags: ["Next.js", ".NET", "FastAPI", "TypeScript", "C#", "Python", "PostgreSQL", "Tailwind", "HTML", "CSS"],
@@ -260,7 +295,10 @@ export const projectsData: Project[] = [
   },
 {
     id: "selene",
-    title: "SELENE",
+    title: {
+      es: "SELENE",
+      en: "SELENE"
+    },
     description: {
       es: "Videojuego 2D para PC de un solo jugador. Disparos, Puzzles, Vidas, Enemigos con patrones, Jefes, Coleccionables. Historia y Diseño (Personajes, Entorno, Interfaz).",
       en: "Single-player 2D PC video game. Shooting, Puzzles, Lives, Patterned Enemies, Bosses, Collectibles. Story and Design (Characters, Environment, Interface)."
@@ -278,7 +316,10 @@ export const projectsData: Project[] = [
   },
   {
     id: "selene-vuelta-casa",
-    title: "SELENE: Vuelta a casa",
+    title: {
+      es: "SELENE: Vuelta a casa",
+      en: "SELENE: Homecoming"
+    },
     description: {
       es: "Videojuego 3D para Móviles y PC. Pantalla dividida, Guardado de datos, Tienda, Edición de personaje. Modelado de Personajes, Animaciones, Interfaz y Entorno.",
       en: "3D Mobile and PC Video Game. Split screen, Data saving, Store, Character editing. Character Modeling, Animations, Interface, and Environment."
@@ -296,7 +337,10 @@ export const projectsData: Project[] = [
   },
     {
     id: "ratings-bebidas",
-    title: "Predicción de Ratings de Bebidas",
+    title: {
+      es: "Predicción de Ratings de Bebidas",
+      en: "Beverage Rating Prediction"
+    },
     description: {
       es: "Sistema de Análisis de datos para predecir ratings de bebidas extrayendo datos con Web Scrapping. Análisis exploratorio, limpieza de datos, modelos de regresión y clasificación.",
       en: "Data Analysis system to predict beverage ratings extracting data with Web Scraping. Exploratory analysis, data cleaning, regression and classification models."

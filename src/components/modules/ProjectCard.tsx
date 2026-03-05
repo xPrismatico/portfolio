@@ -40,7 +40,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         
         <Image
           src={project.image}
-          alt={project.title}
+          alt={project.title[language]}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
@@ -59,7 +59,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <div className="flex flex-1 flex-col p-6 pt-2 relative">
         {/* Título superpuesto visualmente un poco arriba o normal */}
         <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-            {project.title}
+            {/* CAMBIO AQUÍ: Usamos [language] */}
+            {project.title[language]}
         </h3>
 
         {/* Tags con Iconos SVG */}

@@ -1,84 +1,102 @@
 "use client";
 
-import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { skillsData } from "@/data/profile";
 import SectionTitle from "@/components/ui/SectionTitle";
-import { cn } from "@/libs/utils";
 import TechBadge from "../ui/TechBadge";
-
-// Si no quieres instalar framer-motion, avísame y te paso la versión CSS pura.
-// npm install framer-motion
+import { 
+  Code2, 
+  Database, 
+  Layout, 
+  Settings, 
+  Server,
+  Smartphone,
+  Brain,
+  Users,
+  Layers
+} from "lucide-react";
+import { cn } from "@/libs/utils";
 
 export default function Skills() {
   const { t, language } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState(skillsData[0].id);
 
-  // Encontrar la categoría activa para mostrar sus skills
-  const activeData = skillsData.find((cat) => cat.id === activeCategory);
+  // Mapeo de iconos y colores base para los TÍTULOS de categoría
+  const categoryTheme = {
+    frontend: { icon: Layout, color: "text-blue-500", bgColor: "bg-blue-500/10", borderColor: "border-blue-500/20" },
+    backend: { icon: Server, color: "text-green-500", bgColor: "bg-green-500/10", borderColor: "border-green-500/20" },
+    databases: { icon: Database, color: "text-yellow-500", bgColor: "bg-yellow-500/10", borderColor: "border-yellow-500/20" },
+    tools: { icon: Settings, color: "text-orange-500", bgColor: "bg-orange-500/10", borderColor: "border-orange-500/20" },
+    core: { icon: Layers, color: "text-purple-500", bgColor: "bg-purple-500/10", borderColor: "border-purple-500/20" },
+    soft: { icon: Users, color: "text-pink-500", bgColor: "bg-pink-500/10", borderColor: "border-pink-500/20" },
+  };
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-muted/10">
+    <section id="skills" className="py-24 relative overflow-hidden">
       
-      {/* Fondo sutil tipo Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+      {/* Fondo tipo "Rejilla" Bonita (Mantenido) */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none -z-10" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
+        
         <SectionTitle 
           title={t.navbar.skills} 
-          subtitle={language === "es" ? "Mi arsenal tecnológico" : "My Tech Stack"}
+          subtitle={language === "es" ? "Mi arsenal tecnológico y competencias profesionales" : "My professional tech stack and competencies"}
         />
 
-        <div className="flex flex-col items-center mt-12">
-          
-          {/* --- NAVEGACIÓN DE PESTAÑAS (TABS) --- */}
-          <div className="flex flex-wrap justify-center gap-2 p-1.5 rounded-full bg-background/80 backdrop-blur-md border border-border shadow-sm mb-12">
-            {skillsData.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={cn(
-                  "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 relative",
-                  activeCategory === category.id 
-                    ? "text-white shadow-md" 
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                )}
+        {/* Contenedor principal con más espacio entre categorías */}
+        <div className="mt-2 flex flex-col gap-6">
+          {skillsData.map((category) => {
+            // Obtenemos el tema visual para esta categoría
+            const theme = categoryTheme[category.id as keyof typeof categoryTheme] || categoryTheme.core;
+            const TitleIcon = theme.icon;
+
+            return (
+              // --- MEGACONTENEDOR DE CATEGORÍA ---
+              // Un gran rectángulo redondeado con fondo sutil que agrupa todo
+              <div 
+                key={category.id} 
+                className="relative flex flex-col lg:flex-row gap-8 p-6 md:p-8 rounded-3xl bg-card/30 border border-border/40 backdrop-blur-md shadow-sm transition-all hover:shadow-md"
               >
-                {/* Fondo animado para la tab activa */}
-                {activeCategory === category.id && (
-                  <span className="absolute inset-0 bg-primary rounded-full -z-10 animate-in fade-in zoom-in duration-300" />
-                )}
-                {category.title[language]}
-              </button>
-            ))}
-          </div>
+                
+                {/* --- COLUMNA IZQUIERDA: TARJETA DE TÍTULO --- */}
+                {/* En móvil va arriba, en desktop a la izquierda. Es una tarjeta visualmente rica. */}
+                <div className={cn(
+                  "lg:w-1/3 xl:w-1/4 flex-shrink-0 flex flex-col justify-center p-6 rounded-2xl border",
+                  theme.bgColor, theme.borderColor
+                )}>
+                   <div className="flex items-center gap-4">
+                      <div className={cn("p-3 rounded-xl bg-background/60 shadow-sm", theme.color)}>
+                        <TitleIcon className="h-8 w-8" />
+                      </div>
+                      <h3 className={cn("text-2xl font-bold tracking-tight", theme.color)}>
+                        {category.title[language]}
+                      </h3>
+                   </div>
+                   {/* Decoración opcional: pequeña descripción bajo el título si quisieras agregarla en el futuro */}
+                   {/* <p className="mt-2 text-sm text-muted-foreground">Technical Skills</p> */}
+                </div>
 
-          {/* --- GRID DE HABILIDADES --- */}
-          <div className="w-full max-w-5xl min-h-[300px]">
-             {/* Animación de entrada al cambiar categoría */}
-             <div 
-               key={activeCategory} 
-               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500"
-             >
-                {activeData?.skills.map((skill, index) => (
-                  <TechBadge 
-                    key={index}
-                    name={skill.name}
-                    icon={skill.icon!} // El ! es porque definimos icon como opcional en la interfaz, pero aquí sabemos que existe
-                    color={skill.color}
-                  />
-                ))}
-             </div>
-             
-             {/* Mensaje vacío si no hay skills (seguridad) */}
-             {(!activeData?.skills || activeData.skills.length === 0) && (
-               <p className="text-center text-muted-foreground mt-10">
-                 No skills found for this category.
-               </p>
-             )}
-          </div>
+                {/* --- COLUMNA DERECHA: LOS BADGES GIGANTES --- */}
+                <div className="lg:w-2/3 xl:w-3/4 flex items-center">
+                  <div className="flex flex-wrap gap-4">
+                    {category.skills.map((skill, idx) => (
+                      <TechBadge 
+                        key={idx} 
+                        name={skill.name} 
+                        icon={skill.icon!} 
+                        color={skill.color} 
+                        // Opcional: hacer que ocupen el ancho completo en móviles muy pequeños
+                        customClass="w-full sm:w-auto"
+                      />
+                    ))}
+                  </div>
+                </div>
 
+              </div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

@@ -25,7 +25,7 @@ export interface Stat {
 // Interfaz para Habilidades (Skills)
 // Usaremos "categorías" para agruparlas mejor (Frontend, Backend, Herramientas)
 export interface Skill {
-  name: string;
+  name: LocalizedText;
   icon?: LucideIcon; 
   color?: string; // Color hexadecimal para efectos hover (opcional)
 }
@@ -39,7 +39,7 @@ export interface SkillCategory {
 // Interfaz para Proyectos
 export interface Project {
   id: string;
-  title: string;
+  title: LocalizedText;
   description: LocalizedText;
   synopsis?: LocalizedText;
   image: string; // Ruta en /public (ej: "/projects/ecommerce.jpg")

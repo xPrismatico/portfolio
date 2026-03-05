@@ -2,38 +2,52 @@
 
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/libs/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { LocalizedText } from "@/interfaces";
 
 interface TechBadgeProps {
-  name: string;
+  name: LocalizedText;
   icon: LucideIcon;
-  color?: string; // Hex color (ej: #61DAFB para React)
+  color?: string;
   customClass?: string;
 }
 
-export default function TechBadge({ name, icon: Icon, color = "#3b82f6", customClass }: TechBadgeProps) {
+export default function TechBadge({ name, icon: Icon, color, customClass }: TechBadgeProps) {
+  const { language } = useLanguage();
+  
+  // Color por defecto si no se especifica uno (usamos el primario de tu tema)
+  const hoverColor = color || "var(--primary)";
+
   return (
     <div
       className={cn(
-        "group relative flex items-center gap-3 rounded-xl border border-border/50 bg-background/50 p-3 transition-all duration-300 hover:-translate-y-1 hover:border-border hover:shadow-lg",
+        // CLASES BASE:
+        // - Mucho más padding (px-5 py-3) para que se vean grandes.
+        // - rounded-2xl para bordes muy suaves.
+        // - Fondo y borde sutiles por defecto.
+        "group relative flex items-center gap-4 px-5 py-3 rounded-2xl border border-border/50 bg-background/50 backdrop-blur-sm transition-all duration-500 ease-out cursor-default",
+        // HOVER:
+        // - Sombra coloreada suave.
+        // - El borde toma el color.
+        // - Ligera elevación (-translate-y-1).
+        "hover:shadow-[0_8px_20px_-8px_var(--hover-color)] hover:border-[var(--hover-color)] hover:-translate-y-1",
         customClass
       )}
-      // Usamos style para inyectar el color específico de la tecnología en el hover
-      style={{ "--hover-color": color } as React.CSSProperties}
+      // Inyectamos el color específico como variable CSS para este elemento
+      style={{ "--hover-color": hoverColor } as React.CSSProperties}
     >
-      {/* Fondo con brillo sutil al hover */}
-      <div className="absolute inset-0 rounded-xl bg-[var(--hover-color)] opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-10" />
       
-      {/* Contenedor del Icono */}
-      <div 
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted/50 transition-colors duration-300 group-hover:bg-[var(--hover-color)] group-hover:text-white"
-        style={{ color: "var(--foreground)" }} // Color base
-      >
-        <Icon className="h-6 w-6" />
+      {/* Contenedor del Icono: Más grande y definido */}
+      <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-muted/80 transition-all duration-500 group-hover:bg-[var(--hover-color)] group-hover:scale-110">
+        <Icon 
+          // El icono es gris por defecto, blanco al hacer hover sobre el fondo de color
+          className="h-6 w-6 text-muted-foreground transition-colors duration-500 group-hover:text-white" 
+        />
       </div>
 
-      {/* Nombre */}
-      <span className="font-medium text-muted-foreground transition-colors group-hover:text-foreground">
-        {name}
+      {/* Nombre: Texto más grande (text-base) */}
+      <span className="text-base font-semibold text-foreground/70 transition-colors duration-500 group-hover:text-foreground leading-tight">
+        {name[language]}
       </span>
     </div>
   );
