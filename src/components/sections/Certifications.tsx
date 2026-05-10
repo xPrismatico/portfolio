@@ -15,6 +15,7 @@ export default function Certifications() {
       case "education": return <GraduationCap className="h-6 w-6" />;
       case "course": return <BookOpen className="h-6 w-6" />;
       case "program": return <Award className="h-6 w-6" />;
+      case "work": return <Sparkles className="h-6 w-6" />;
       default: return <Award className="h-6 w-6" />;
     }
   };
@@ -26,6 +27,7 @@ export default function Certifications() {
       course: { es: "Curso", en: "Course" },
       program: { es: "Programa", en: "Program" },
       certification: { es: "Certificación", en: "Certification" },
+      work: { es: "Experiencias Laborales", en: "Work Experiences" },
     };
     return labels[type]?.[language] || type;
   };

@@ -137,9 +137,9 @@ export const skillsData: SkillCategory[] = [
     title: { es: "Backend", en: "Backend" },
     skills: [
       { name: { es: ".NET", en: ".NET" }, icon: Server, color: "#512BD4" },
+      { name: { es: "Java", en: "Java" }, icon: Code2, color: "#007396" },
       { name: { es: "FastAPI", en: "FastAPI" }, icon: Server, color: "#009688" },
       { name: { es: "Python", en: "Python" }, icon: Code2, color: "#3776AB" },
-      { name: { es: "Java", en: "Java" }, icon: Code2, color: "#007396" },
       { name: { es: "C#", en: "C#" }, icon: Code2, color: "#239120" },
     ],
   },
@@ -150,6 +150,8 @@ export const skillsData: SkillCategory[] = [
       { name: { es: "SQL", en: "SQL" }, icon: Database, color: "#4479A1" },
       { name: { es: "PostgreSQL", en: "PostgreSQL" }, icon: Database, color: "#336791" },
       { name: { es: "MySQL", en: "MySQL" }, icon: Database, color: "#4479A1" },
+      { name: { es: "SQLite", en: "SQLite" }, icon: Database, color: "#4479A1" },
+      { name: { es: "RQLite", en: "RQLite" }, icon: Database, color: "#4479A1" },
     ],
   },
   {
@@ -191,6 +193,8 @@ export const skillsData: SkillCategory[] = [
       { name: { es: "Liderazgo", en: "Leadership" }, icon: Award, color: "#FFE66D" },
       { name: { es: "Resolución de Problemas", en: "Problem Solving" }, icon: Brain, color: "#1A535C" },
       { name: { es: "Adaptabilidad", en: "Adaptability" }, icon: Globe, color: "#FF9F1C" },
+      { name: { es: "Creatividad", en: "Creativity" }, icon: Brain, color: "#0ea5e9" },
+    
     ],
   },
 ];
@@ -413,34 +417,46 @@ export const certificationsData: Certification[] = [
     id: "bhp-heuma",
     title: { es: "Programa Desarrollo de competencias para la empleabilidad", en: "Employability Skills Development Program" },
     issuer: "BHP Apresto HEUMA",
-    date: "Septiembre - Diciembre 2025",
+    date: "Sept - Dic 2025",
     description: {
-      es: "Programa de desarrollo de competencias blandas y preparación para el mundo laboral.",
-      en: "Soft skills development program and preparation for the labor market."
+      es: "Programa de desarrollo de competencias blandas y preparación para el mundo laboral. Incluye comunicación efectiva, liderazgo, inteligencia emocional, trabajo en equipo y resolución de conflictos.",
+      en: "Soft skills development program and preparation for the labor market. Includes effective communication, leadership, emotional intelligence, teamwork, and conflict resolution."
     },
     type: "program"
+  },
+  {
+    id: "fullstack-dev",
+    title: { es: "Desarrollador Fullstack e Ingeniero de Software", en: "Fullstack Developer and Software Engineer" },
+    issuer: "ByG Ingeniería, VyV Refrigeración, Comercial MonteCristo, Freelance",
+    date: "2025 - 2026",
+    description: {
+      es: "Desarrollo de sistemas web fullstack y aplicaciones modernas, ecommerce, automatización de procesos, sitios corporativos, portafolio, prototipos, arquitectura, base de datos, hosting, SEO óptimo. Aumenté ventas, clientes y posicioné a las empresas en redes sociales.",
+      en: "Fullstack web system development and modern applications, ecommerce, process automation, corporate websites, portfolio, prototypes, architecture, database, hosting, optimal SEO. Increased sales, clients, and positioned companies on social media."
+    },
+    type: "work"
   },
   {
     id: "nextjs-udemy",
     title: { es: "Next.js el framework de React para producción", en: "Next.js: The React Framework for Production" },
     issuer: "Udemy",
-    date: "Octubre 2025",
+    date: "Oct 2025",
     description: {
       es: "Curso completo sobre desarrollo web moderno con Next.js, Server Components, App Router y optimización.",
       en: "Complete course on modern web development with Next.js, Server Components, App Router, and optimization."
     },
-    link: "https://www.udemy.com/certificate/...", // Pon el link real si lo tienes
+    link: "https://www.udemy.com/certificate/UC-30709159-7386-47a7-9768-c11287f60e26/", // Pon el link real si lo tienes
     type: "course"
   },
   {
     id: "ing-ucn",
     title: { es: "Ingeniería Civil en Computación e Informática", en: "Computer Science & Informatics Engineering" },
     issuer: "Universidad Católica del Norte (UCN)",
-    date: "2021 - Actualidad",
+    date: "2021 - 2026",
     description: {
-      es: "Estudiante de 4º año con sólida formación en ingeniería de software, desarrollo web y ciencia de datos.",
-      en: "4th-year student with solid training in software engineering, web development, and data science."
+      es: "Estudiante de 4º año con sólida formación en ingeniería de software, desarrollo web, ciencia de datos, gestión de proyectos, estructuras de datos, base de datos, programación y automatización.",
+      en: "4th-year student with solid training in software engineering, web development, data science, programming and automation, project management, data structures, and database."
     },
+    link: "https://admision.ucn.cl/carreras/tecnologia-computacion/ingenieria-civil-en-computacion-e-informatica/", // Enlace a la universidad
     type: "education"
   },
   {
@@ -449,9 +465,10 @@ export const certificationsData: Certification[] = [
     issuer: "Colegio Técnico Industrial Don Bosco",
     date: "2017 - 2020",
     description: {
-      es: "Formación técnica en electricidad y electrónica con énfasis en resolución de problemas.",
-      en: "Technical training in electricity and electronics with emphasis on problem solving."
+      es: "Formación técnica en electricidad y electrónica industrial y doméstica con énfasis en resolución de problemas.",
+      en: "Technical training in electricity and electronics industrial and domestic with emphasis on problem solving."
     },
+    link: "https://www.donboscoantofagasta.cl/", // Enlace al colegio
     type: "education"
   }
 ];

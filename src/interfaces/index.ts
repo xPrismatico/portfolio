@@ -73,5 +73,5 @@ export interface Certification {
   description: LocalizedText;
   image?: string; // Por si quisieras logos, aunque usaremos iconos por defecto
   link?: string; // Para el icono de "external link"
-  type: "certification" | "course" | "education" | "program"; // Para el texto del badge pequeño
+  type: "certification" | "course" | "education" | "program" | "work"; // Para el texto del badge pequeño
 }
