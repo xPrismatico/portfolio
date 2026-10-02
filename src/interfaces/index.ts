@@ -2,6 +2,18 @@
 
 import { LucideIcon } from "lucide-react";
 
+// Interfaz para Momentos Destacados (Hackatones, Voluntariados, Premios)
+export interface Highlight {
+  id: string;
+  title: LocalizedText;
+  role: LocalizedText;
+  period: string;
+  description: LocalizedText;
+  image: string;
+  type: "hackathon" | "volunteer" | "award" | "program" | "work";
+  iconType: string;
+}
+
 // Para textos que cambian entre Español e Inglés
 export interface LocalizedText {
   es: string;

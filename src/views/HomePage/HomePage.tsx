@@ -1,5 +1,6 @@
 "use client";
 
+import Experience from '@/components/sections/Experience';
 import React from 'react';
 import Hero from '@/components/sections/Hero';
 import SectionTitle from '@/components/ui/SectionTitle';
@@ -33,6 +34,7 @@ export default function HomePage() {
       <Skills />
 
       {/* 4. EXPERIENCE SECTION */}
+      <Experience />
 
       {/* 5. PROJECTS SECTION (Fondo alternado) */}
       <Projects />

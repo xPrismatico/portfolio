@@ -104,12 +104,12 @@ export default function Certifications() {
             </div>
             
             <h4 className="text-lg font-bold text-foreground mb-2">
-                {language === "es" ? "Aprendizaje Continuo" : "Continuous Learning"}
+                {language === "es" ? "En Aprendizaje Continuo" : "Continuous Learning"}
             </h4>
             <p className="text-sm text-muted-foreground max-w-lg">
                 {language === "es" 
-                    ? "Constantemente actualizando conocimientos en tecnologías emergentes y mejores prácticas de desarrollo."
-                    : "Constantly updating knowledge in emerging technologies and development best practices."}
+                    ? "Siempre actualizando conocimientos tecnológicos y mejores prácticas!"
+                    : "Always updating Technologies knowledge and best practices!"}
             </p>
         </div>
 

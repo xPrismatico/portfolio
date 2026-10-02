@@ -20,7 +20,7 @@ import {
   Monitor,    
   Eye         
 } from "lucide-react";
-import { Certification, Experience, Project, SkillCategory, SocialLink, Stat } from "@/interfaces";
+import { Certification, Experience, Project, SkillCategory, SocialLink, Stat, Highlight} from "@/interfaces";
 
 // --- CONSTANTES DE RUTAS (Tus carpetas en public) ---
 // Esto hace que si cambias la carpeta mañana, solo cambias esto aquí
@@ -54,6 +54,130 @@ export const TECH_ICONS: Record<string, string> = {
 };
 
 
+// --- HIGHLIGHTS / MOMENTOS DESTACADOS ---
+// --- HIGHLIGHTS / MOMENTOS DESTACADOS ---
+export const highlightsData: Highlight[] = [
+  {
+    id: "fcab-vinculacion",
+    title: { es: "FCAB Vinculación Temprana", en: "FCAB Early Engagement" },
+    role: { es: "Ingeniero de Software Fullstack", en: "Fullstack Software Engineer" },
+    period: "2026",
+    description: { 
+      es: "Impacto directo en operaciones ferroviarias. Arquitectura y desarrollo de sistemas críticos que automatizan, estandarizan y optimizan procesos elevan la seguridad operativa a través de las buenas prácticas, estándares, seguridad, calidad, escalabilidad y seguridad de software.", 
+      en: "Direct impact on railway operations. Architecture and development of critical systems that automate processes and elevate operational security." 
+    },
+    type: "work",
+    iconType: "train",
+    image: "/experiences/fcab.jpg"
+  },
+  {
+    id: "hackadisc",
+    title: { es: "HackaDISC", en: "HackaDISC" },
+    role: { es: "Fullstack Software Engineer & Data Analyst", en: "Fullstack Software Engineer & Data Analyst" },
+    period: "2024 - 2026",
+    description: { 
+      es: "Creación de predictores financieros y dashboards con Machine Learning en tiempo récord (3 días). Demostración de alto rendimiento bajo presión extrema.", 
+      en: "Creation of financial predictors and dashboards with Machine Learning in record time (3 days). Demonstration of high performance under extreme pressure." 
+    },
+    type: "hackathon",
+    iconType: "cpu",
+    image: "/experiences/hackadisc.jpg"
+  },
+  {
+    id: "selene-award",
+    title: { es: "1° Lugar 'SELENE' GOTA UCN", en: "1st Place 'SELENE' GOTA UCN" },
+    role: { es: "Líder de Desarrollo & UI/UX", en: "Lead Developer & UI/UX" },
+    period: "2023 - 2024",
+    description: { 
+      es: "Bicampeón en desarrollo de videojuegos. Liderazgo de equipo multidisciplinario fusionando programación avanzada, diseño artístico, creatividad y experiencia de usuario.", 
+      en: "Two-time game development champion. Leadership of a multidisciplinary team merging advanced programming, art design, creativity and user experience." 
+    },
+    type: "award",
+    iconType: "trophy",
+    image: "/experiences/selene-award.jpg"
+  },
+  {
+    id: "freelance-fullstack",
+    title: { es: "E-Commerce & Sistemas B2B", en: "E-Commerce & B2B Systems" },
+    role: { es: "Desarrollador Fullstack Freelance", en: "Freelance Fullstack Developer" },
+    period: "2025 - 2026",
+    description: { 
+      es: "Entrega de plataformas eficientes listas para usarse con catálogos dinámicos, SEO óptimo, gestión de productos, usuarios, estadísticas y documentos financieros. Aumento real de ventas y visibilidad digital para empresas.", 
+      en: "Delivery of efficient platforms ready-to-use with dynamic catalogs and optimal SEO. Real increase in sales and digital visibility for established companies." 
+    },
+    type: "work",
+    iconType: "code",
+    image: "/experiences/sistemas.jpg"
+  },
+  {
+    id: "heuma",
+    title: { es: "Apresto y Sesiones HEUMA - BHP", en: "Apresto & Sessions HEUMA - BHP" },
+    role: { es: "Resolución de Desafíos Mineros & Competencias Laborales", en: "Mining Challenges Resolution & Work Skills" },
+    period: "2025 - Actualidad",
+    description: { 
+      es: "Programa de inmersión estratégica en la cadena de valor minera. Desarrollo de competencias directivas y resolución de desafíos reales de la industria junto a BHP.", 
+      en: "Strategic immersion program in the mining value chain. Development of leadership skills and resolution of real industry challenges alongside BHP." 
+    },
+    type: "program",
+    iconType: "pickaxe",
+    image: "/experiences/heuma.jpg"
+  },
+  {
+    id: "ayudantias",
+    title: { es: "Docencia en Ingeniería Informática UCN", en: "Informatics Engineering Teaching Assistant" },
+    role: { es: "Ayudante y Evaluador Académico", en: "Academic Assistant and Evaluator" },
+    period: "2023 - 2026",
+    description: { 
+      es: "Más de 3 años formando, enseñando, evaluando y apoyando a estudiantes en cursos de informática: desarrollo web fullstack, ingeniería de softwarte, videojuegos, algoritmos, estructuras y bases de datos. Fuerte vocación por la comunicación efectiva y buenas prácticas", 
+      en: "Over 3 years training students in TI courses: web fullstack development, software engineer, video games, algorithms, structures and databases. Strong passion for effective communication." 
+    },
+    type: "work",
+    iconType: "code",
+    image: "/experiences/ayudantias.jpg"
+  },
+  {
+    id: "technovation",
+    title: { es: "Technovation Girls", en: "Technovation Girls" },
+    role: { es: "Mentor Voluntario en TI", en: "Volunteer IT Mentor" },
+    period: "2024 - 2025",
+    description: { 
+      es: "Formación de futuras mujeres líderes en tecnología. Mentoría en gestión, diseño y programación de aplicaciones orientadas a objetivos ODS.", 
+      en: "Training the next generation of women in tech. Mentoring in management, design, and programming of applications oriented to SDG goals." 
+    },
+    type: "volunteer",
+    iconType: "heart",
+    image: "/experiences/technovation.jpg"
+  },
+  {
+    id: "ceal",
+    title: { es: "Centro de Alumnos (CEAL)", en: "Student Center (CEAL)" },
+    role: { es: "Delegado Docente & Líder", en: "Academic Delegate & Leader" },
+    period: "2024 - 2025",
+    description: { 
+      es: "Liderazgo estudiantil activo. Mediación de conflictos, fomento de la equidad y planificación estratégica de eventos para la facultad de ingeniería.", 
+      en: "Active student leadership. Conflict mediation, promotion of equity, and strategic planning of events for the engineering faculty." 
+    },
+    type: "volunteer",
+    iconType: "heart",
+    image: "/experiences/ceal.jpg"
+  },
+  {
+    id: "expoucn",
+    title: { es: "ExpoUCN", en: "ExpoUCN" },
+    role: { es: "Expositor Tecnológico", en: "Technology Exhibitor" },
+    period: "2024 - 2026",
+    description: { 
+      es: "Exhibición de proyectos y asignaturas de alto impacto ante la comunidad. Demostración de habilidades de oratoria, presencia y capacidad para transmitir valor tecnológico.", 
+      en: "Exhibition of high-impact projects and courses to the community. Demonstration of public speaking skills, presence, and ability to convey technological value." 
+    },
+    type: "program",
+    iconType: "star",
+    image: "/experiences/expoucn.jpg"
+  }
+];
+
+
+
 // --- DATOS PERSONALES CENTRALIZADOS ---
 export const personalInfo = {
   name: "Samuel Fuentes Ávila",
@@ -65,8 +189,8 @@ export const personalInfo = {
   location: "Antofagasta, Chile",
   mapUrl: "https://www.google.com/maps/place/Antofagasta", // Enlace a Maps
   about: {
-    es: "Estudiante apasionado por la ingeniería de software, desarrollo web y ciencia de datos. Tengo experiencia en desarrollo web/móvil, análisis de datos y sistemas a medida.",
-    en: "Passionate student of software engineering, web development, and data science. Experienced in web/mobile development, data analysis, and custom systems."
+    es: "Estudiante con pasión y experiencia en ingeniería de software, desarrollo web fullstack y ciencia de datos. Me motiva crear soluciones innovadoras que te aporten valor estratégico real a través de la ingeniería, creatividad, atención al detalle, experiencias únicas, eficiencia, UI/UX, tecnología y aprendizaje continuo.",
+    en: "Passionate student of software engineering, fullstack web development, and data science. I'm motivated to create innovative solutions that provide you with real strategic value through engineering, creativity, attention to detail, unique experiences, efficiency, UI/UX, technology, and continuous learning."
   },
   cvUrl: PATHS.cv,
   
@@ -369,8 +493,8 @@ export const experienceData: Experience[] = [
     role: { es: "Ingeniería Civil en Computación e Informática", en: "Computer Science Engineering" },
     period: "2021 - Actualidad",
     description: {
-      es: "Estudiante de 4º año con sólida formación en ingeniería de software.",
-      en: "4th-year student with solid training in software engineering.",
+      es: "Estudiante de 5º año con sólida formación en ingeniería de software.",
+      en: "5th-year student with solid training in software engineering.",
     },
   },
   {
@@ -394,8 +518,8 @@ export const educationInfo = {
     en: "Computer Science & Informatics Engineering"
   },
   year: {
-    es: "4º Año • 2021 - Actualidad",
-    en: "4th Year • 2021 - Present"
+    es: "5º Año • 2021 - Actualidad",
+    en: "5th Year • 2021 - Present"
   },
   location: "Antofagasta, Chile",
 };
@@ -425,12 +549,23 @@ export const certificationsData: Certification[] = [
     type: "program"
   },
   {
+    id: "bhp-heuma-2",
+    title: { es: "Programa Desafíos en la Industria y Cadena de valor minera", en: "Program: Challenges in the Industry and Mining Value Chain" },
+    issuer: "BHP Sesiones HEUMA",
+    date: "2026",
+    description: {
+      es: "Programa de inmersión estratégica en la cadena de valor minera a través de expositores de BHP, charlas, desarrollo de posters, videos y entregables",
+      en: "Strategic immersion program in the mining value chain featuring presentations by BHP speakers, talks, poster development, mind maps, videos, and mining-related deliverables.",
+    },
+      type: "program"
+  },
+  {
     id: "fullstack-dev",
     title: { es: "Desarrollador Fullstack e Ingeniero de Software", en: "Fullstack Developer and Software Engineer" },
-    issuer: "ByG Ingeniería, VyV Refrigeración, Comercial MonteCristo, Freelance",
+    issuer: "FCAB, ByG Ingeniería, VyV Refrigeración, Comercial MonteCristo, Freelance",
     date: "2025 - 2026",
     description: {
-      es: "Desarrollo de sistemas web fullstack y aplicaciones modernas, ecommerce, automatización de procesos, sitios corporativos, portafolio, prototipos, arquitectura, base de datos, hosting, SEO óptimo. Aumenté ventas, clientes y posicioné a las empresas en redes sociales.",
+      es: "Desarrollo de sistemas web fullstack y aplicaciones eficientes, modernas, ecommerce, automatización de procesos, sitios corporativos, portafolio, prototipos, arquitectura, base de datos, hosting, SEO óptimo. Aumenté ventas, clientes y posicioné a las empresas en redes sociales.",
       en: "Fullstack web system development and modern applications, ecommerce, process automation, corporate websites, portfolio, prototypes, architecture, database, hosting, optimal SEO. Increased sales, clients, and positioned companies on social media."
     },
     type: "work"
@@ -453,8 +588,8 @@ export const certificationsData: Certification[] = [
     issuer: "Universidad Católica del Norte (UCN)",
     date: "2021 - 2026",
     description: {
-      es: "Estudiante de 4º año con sólida formación en ingeniería de software, desarrollo web, ciencia de datos, gestión de proyectos, estructuras de datos, base de datos, programación y automatización.",
-      en: "4th-year student with solid training in software engineering, web development, data science, programming and automation, project management, data structures, and database."
+      es: "Estudiante de 5º año con sólida formación en ingeniería de software, desarrollo web, ciencia de datos, gestión de proyectos, estructuras de datos, base de datos, programación y automatización.",
+      en: "5th-year student with solid training in software engineering, web development, data science, programming and automation, project management, data structures, and database."
     },
     link: "https://admision.ucn.cl/carreras/tecnologia-computacion/ingenieria-civil-en-computacion-e-informatica/", // Enlace a la universidad
     type: "education"
@@ -471,4 +606,5 @@ export const certificationsData: Certification[] = [
     link: "https://www.donboscoantofagasta.cl/", // Enlace al colegio
     type: "education"
   }
+  
 ];

@@ -25,7 +25,7 @@ export default function Hero() {
 
             {/* Etiqueta "Hola, soy" */}
             <div className="flex justify-center md:justify-start">
-                 <span className="rounded-full bg-blue-900/20 border border-blue-800/50 px-4 py-1.5 text-sm font-semibold text-blue-400 backdrop-blur-sm shadow-sm">
+                 <span className="rounded-full bg-blue-900/10 border border-blue-800/50 px-4 py-1.5 text-sm font-semibold text-blue-400 backdrop-blur-sm shadow-sm">
                     {language === "es" ? "Hola, soy" : "Hello, I'm"}
                  </span>
             </div>

@@ -142,7 +142,7 @@ export default function Contact() {
               
               <p className="text-base md:text-lg text-muted-foreground max-w-sm mb-8 leading-relaxed">
                 {language === "es" 
-                  ? "Disponible para nuevos proyectos y oportunidades. Ayudo a construir soluciones escalables y modernas."
+                  ? "Disponible para nuevos proyectos y oportunidades. Ayudo a construir soluciones únicas, escalables y óptimas."
                   : "Available for new projects and opportunities. Helping build scalable and modern solutions."}
               </p>
 

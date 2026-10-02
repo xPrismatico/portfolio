@@ -74,14 +74,11 @@ export default function About() {
             {/* Biografía */}
             <div className="prose dark:prose-invert max-w-none text-muted-foreground">
               <p className="text-lg leading-relaxed">
-                {personalInfo.about[language]}
-              </p>
-              <p className="text-lg leading-relaxed">
                 {language === "es" 
-                  ? "Me destaco por mi trabajo en equipo, comunicación efectiva, aprendizaje continuo y liderazgo respaldado por mis roles activos de ayudante en cursos de informática. Me motiva crear soluciones innovadoras que respondan necesidades reales."
-                  : "I stand out for my teamwork, effective communication, continuous learning, and leadership backed by my active roles as a teaching assistant in computer science courses. I am motivated to create innovative solutions that answer real needs."
+                  ? "Me especializo en desarrollo full stack y análisis de datos con experiencia automatizando procesos. Soy apasionado por la ingeniería de software, desarrollo web/móvil y ciencia de datos. Destaco por mi sólida base técnica en informática aplicando buenas prácticas, principios de ingeniería de software y metodologías ágiles en proyectos. Mi valor combina ingeniería y habilidades humanas: mi vocación enseñando programación y matemáticas consolida comunicación efectiva, aprendizaje continuo, trabajo en equipo y liderazgo (respaldado por mi rol activo en cursos, proyectos y competencias); Asimismo, dibujar potencia mi visión de diseño UX/UI, creatividad y atención al detalle. Me motiva crear soluciones innovadoras que respondan necesidades reales y aporten valor estratégico con arquitecturas limpias, sistemas escalables, eficientes y seguros. "
+                  : "I specialize in fullstack development and data analysis, with experience in automating processes. I am passionate about software engineering, web/mobile development, and data science. I stand out for my solid technical foundation in computer science, applying best practices, software engineering principles, and agile methodologies to projects. My value lies in combining engineering and interpersonal skills: my passion for teaching programming and mathematics fosters effective communication, continuous learning, teamwork, and leadership (supported by my active role in courses, projects, and competitions); additionally, drawing enhances my UX/UI design vision, creativity, and attention to detail. I am motivated to create innovative solutions that address real needs and deliver strategic value through clean architectures and scalable, efficient, and secure systems."
                 }
-              </p>
+                </p>
             </div>
 
             {/* Áreas de Especialización */}
