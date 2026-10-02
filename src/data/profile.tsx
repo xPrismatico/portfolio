@@ -369,6 +369,28 @@ export const projectsData: Project[] = [
   },
 
     {
+    id: "dashboard-financiero",
+    title: {
+      es: "Dashboard Financiero Inteligente INSECAP",
+      en: "Intelligent Financial Dashboard - INSECAP"
+    },
+    description: {
+      es: "Dashboard web inteligente con predicciones financieras, clasificación de clientes y ejecutivos por riesgo. Excelente UI/UX y visualizaciones efectivas. Procesa datos históricos y se conecta a un motor de Machine Learning. Hecho en HackaDISC 2026 en 3 días para INSECAP",
+      en: "Intelligent dashboard web with financial predictions, customers and managers classification by risk. Excellent UI/UX and effective visualizations. Processes historical data and connects to a Machine Learning engine. Built in 3 days for INSECAP's HackaDISC 2026 event."
+    },
+    image: `${PATHS.projects}/dashboard.png`,
+    tags: ["Next.js", ".NET", "FastAPI", "TypeScript", "C#", "Python", "PostgreSQL", "Tailwind", "HTML", "CSS"],
+    actions: [
+      {
+        label: { es: "Ver Demo", en: "Live Demo" },
+        url: "dashboard-comercial-insecap.vercel.app",
+        icon: Globe,
+      },
+    ],
+    featured: true,
+  },
+
+    {
     id: "bygcompras",
     title: {
       es: "Sistema de Compras ByG Ingeniería",
@@ -419,7 +441,7 @@ export const projectsData: Project[] = [
         icon: Github,
       },
     ],
-    featured: true,
+    featured: false,
   },
 {
     id: "selene",
