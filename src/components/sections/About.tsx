@@ -5,6 +5,7 @@ import { personalInfo, stats, educationInfo, specializations } from "@/data/prof
 import SectionTitle from "@/components/ui/SectionTitle";
 import Card from "@/components/ui/Card";
 import StatCard from "@/components/modules/StatCard";
+import { motion } from "framer-motion";
 import { GraduationCap, MapPin, Calendar, CheckCircle2 } from "lucide-react";
 
 export default function About() {
@@ -14,15 +15,28 @@ export default function About() {
     <section id="about" className="py-20 relative overflow-hidden">
         
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <SectionTitle 
-          title={t.navbar.about} 
-          subtitle={language === "es" ? "Conoce más sobre mí" : "Get to know me"} 
-        />
+        <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+          <SectionTitle 
+            title={t.navbar.about} 
+            subtitle={language === "es" ? "Conoce más sobre mí" : "Get to know me"} 
+          />
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
           
           {/* COLUMNA IZQUIERDA: Información "Dura" y Stats */}
-          <div className="lg:col-span-1 space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="lg:col-span-1 space-y-6"
+          >
             
             {/* Tarjeta de Educación / Ubicación (Estilo Pasaporte) */}
             <Card className="bg-gradient-to-br from-blue-900/10 to-primary/5 border-primary/20">
@@ -59,17 +73,40 @@ export default function About() {
               </div>
             </Card>
 
-            {/* Grid de Estadísticas */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3">
+            {/* Grid de Estadísticas con Stagger */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } }
+              }}
+              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3"
+            >
               {stats.map((stat, index) => (
-                <StatCard key={index} stat={stat} />
+                <motion.div 
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.8 },
+                    visible: { opacity: 1, scale: 1, transition: { type: "spring", bounce: 0.4 } }
+                  }}
+                >
+                  <StatCard stat={stat} />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
 
           {/* COLUMNA DERECHA: Bio y Especializaciones */}
-          <div className="lg:col-span-2 space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+            className="lg:col-span-2 space-y-6"
+          >
             
             {/* Biografía */}
             <div className="prose dark:prose-invert max-w-none text-muted-foreground">
@@ -88,19 +125,35 @@ export default function About() {
                 {language === "es" ? "Áreas de especialización:" : "Areas of specialization:"}
               </h3>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
+<motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.5 } }
+                }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6"
+              >
                 {specializations.map((item, index) => (
-                  <div key={index} className="flex items-center gap-3 group">
+                  <motion.div 
+                    key={index} 
+                    variants={{
+                      hidden: { opacity: 0, x: -10 },
+                      visible: { opacity: 1, x: 0 }
+                    }}
+                    className="flex items-center gap-3 group"
+                  >
                     <div className="h-2 w-2 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
                     <span className="text-sm md:text-base text-foreground/80 group-hover:text-foreground transition-colors">
                       {item[language]}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </Card>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { highlightsData } from "@/data/profile";
@@ -112,23 +113,42 @@ export default function Experience() {
       <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent -z-10" />
 
       <div className="container mx-auto px-4 md:px-8">
-        <SectionTitle
-          title={language === "es" ? "Experiencias y Destacados" : "Experience & Highlights"}
-          subtitle={language === "es" ? "Iniciativas, competencias y roles activos" : "Initiatives, competitions, and active roles"}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <SectionTitle
+            title={language === "es" ? "Experiencias y Destacados" : "Experience & Highlights"}
+            subtitle={language === "es" ? "Iniciativas, competencias y roles activos" : "Initiatives, competitions, and active roles"}
+          />
+        </motion.div>
 
-        <div className="mt-8 mb-6 flex items-center justify-end text-sm text-blue-400/80 animate-pulse pr-2 md:pr-4">
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="mt-8 mb-6 flex items-center justify-end text-sm text-blue-400/80 animate-pulse pr-2 md:pr-4"
+        >
             <span>{language === "es" ? "Presiona una tarjeta para explorar" : "Swipe or click to explore"}</span>
             <ChevronRight className="h-4 w-4 ml-1" />
-        </div>
+        </motion.div>
       </div>
 
       {/* 
         CONTENEDOR DEL CARRUSEL CONTINUO
-        Quitamos el snap-x para que el movimiento sea 100% fluido a 60fps sin tirones.
+        Animamos su entrada general, pero dejamos el div interno normal para no romper la matemática del scroll.
       */}
-      <div
-        ref={containerRef}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+      >
+        <div
+          ref={containerRef}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={() => setIsPaused(true)}
@@ -212,7 +232,8 @@ export default function Experience() {
 
         {/* Espaciador Derecho */}
         <div className="shrink-0 w-[7.5vw] md:w-[calc(50vw-225px)]" aria-hidden="true" />
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

@@ -13,9 +13,10 @@ import { cn } from "@/libs/utils";
 
 interface ProjectCardProps {
   project: Project;
+  index?: number;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const { language } = useLanguage();
   const [showSynopsis, setShowSynopsis] = useState(false);
 
@@ -26,10 +27,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-border/50 bg-card text-card-foreground shadow-lg transition-all hover:shadow-xl hover:border-primary/20"
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
+      className="group flex flex-col overflow-hidden rounded-2xl border border-border/50 bg-card text-card-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-2"
     >
       {/* --- IMAGEN --- */}
       <div className="relative h-56 w-full overflow-hidden bg-muted">

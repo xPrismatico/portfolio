@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 import CopyButton from "@/components/modules/CopyButton";
 import { Mail, Phone, MapPin, Send, Download, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 // Tecnologías específicas para el badge de contacto (Iconos SVG o Lucide)
 // Como ejemplo rápido usaré texto, pero idealmente usarías TechBadge si quieres iconos
@@ -23,15 +24,28 @@ export default function Contact() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[100px] -z-10" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <SectionTitle 
-          title={t.navbar.contact} 
-          subtitle={language === "es" ? "¿Tienes un proyecto en mente? ¡Hablemos!" : "Have a project in mind? Let's talk!"} 
-        />
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <SectionTitle 
+            title={t.navbar.contact} 
+            subtitle={language === "es" ? "¿Tienes un proyecto en mente? ¡Hablemos!" : "Have a project in mind? Let's talk!"} 
+          />
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mt-8 max-w-6xl mx-auto"> {/* Compact grid */}
           
           {/* COLUMNA IZQUIERDA: Información de Contacto Directo */}
-          <div className="space-y-6 flex flex-col h-full">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="space-y-6 flex flex-col h-full"
+          >
             <Card className="p-6 md:p-8 flex-1 flex flex-col justify-between border-primary/10">
               <div>
                 <h3 className="text-xl md:text-2xl font-bold mb-6">
@@ -123,10 +137,16 @@ export default function Contact() {
                 </a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* COLUMNA DERECHA: Llamada a la Acción e Impacto */}
-          <div className="flex flex-col h-full">
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+            className="flex flex-col h-full"
+          >
             <Card className="flex-1 flex flex-col items-center justify-center text-center p-8 md:p-10 bg-gradient-to-br from-background via-muted/10 to-primary/5 border-primary/10 relative overflow-hidden">
               
               {/* Decoración de fondo */}
@@ -181,7 +201,7 @@ export default function Contact() {
                 </div>
               </div>
             </Card>
-          </div>
+          </motion.div>
 
         </div>
       </div>

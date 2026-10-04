@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { personalInfo, projectsData, socialLinks } from "@/data/profile";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -16,19 +17,35 @@ export default function Projects() {
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 h-96 w-96 rounded-full bg-purple-500/5 blur-3xl -z-10" />
 
       <div className="container mx-auto px-4 md:px-8">
-        <SectionTitle 
-          title={t.navbar.projects} 
-          subtitle={language === 'es' ? "Mis trabajos destacados" : "My featured work"}
-        />
+        
+        {/* Título con entrada suave */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <SectionTitle 
+            title={t.navbar.projects} 
+            subtitle={language === 'es' ? "Mis trabajos destacados" : "My featured work"}
+          />
+        </motion.div>
 
+        {/* Pasamos el index al map para crear la cascada */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {projectsData.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {projectsData.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
         
-        {/* Botón Ver Todos (Opcional, si tienes muchos más en Github) */}
-        <div className="mt-12 text-center">
+        {/* Botón Ver Todos animado */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          className="mt-12 text-center"
+        >
             <a 
                 href={socialLinks[0].url}  // Assuming the first social link is GitHub
                 target="_blank" 
@@ -38,7 +55,7 @@ export default function Projects() {
                 {language === 'es' ? 'Ver más proyectos en GitHub' : 'View more projects on GitHub'}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -43,58 +43,84 @@ export default function Skills() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none -z-10" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        
-        <SectionTitle 
-          title={t.navbar.skills} 
-          subtitle={language === "es" ? "Mis tecnologías y competencias profesionales" : "My professional tech stack and competencies"}
-        />
+        <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+          <SectionTitle 
+            title={t.navbar.skills} 
+            subtitle={language === "es" ? "Mis tecnologías y competencias profesionales" : "My professional tech stack and competencies"}
+          />
+        </motion.div>
 
-        {/* Contenedor centralizado para el Acordeón */}
-        <div className="mt-8 flex flex-col gap-4 max-w-4xl mx-auto">
+        {/* Contenedor centralizado para el Acordeón con animación en cascada */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+          }}
+          className="mt-8 flex flex-col gap-4 max-w-4xl mx-auto"
+        >
           {skillsData.map((category) => {
             const theme = categoryTheme[category.id as keyof typeof categoryTheme] || categoryTheme.core;
             const TitleIcon = theme.icon;
             const isOpen = openSection === category.id;
 
             return (
-              <div 
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                }}
                 key={category.id} 
                 className={cn(
-                  "rounded-2xl md:rounded-3xl border backdrop-blur-sm transition-all duration-300 overflow-hidden",
+                  "rounded-2xl md:rounded-3xl border backdrop-blur-sm transition-all duration-300 overflow-hidden group",
                   isOpen 
                     ? `bg-card/60 shadow-lg ${theme.borderColor}` 
-                    : "bg-card/20 border-border/40 hover:border-border/80 hover:bg-card/40"
+                    : "bg-card/20 border-border/40 hover:border-primary/30 hover:bg-card/40 hover:shadow-md"
                 )}
               >
                 {/* Botón Cabecera (Header) */}
                 <button 
                   onClick={() => setOpenSection(isOpen ? "" : category.id)}
-                  className="w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                  className="w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 cursor-pointer"
                   aria-expanded={isOpen}
                 >
                   <div className="flex items-center gap-4 md:gap-5">
                     <div className={cn(
-                      "p-3 md:p-3.5 rounded-xl transition-colors duration-300", 
-                      isOpen ? cn(theme.bgColor, theme.color) : "bg-muted text-muted-foreground"
+                      "p-3 md:p-3.5 rounded-xl transition-all duration-300", 
+                      isOpen ? cn(theme.bgColor, theme.color, "scale-110") : "bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary group-hover:scale-105"
                     )}>
                       <TitleIcon className="h-6 w-6 md:h-7 md:w-7" />
                     </div>
-                    <h3 className={cn(
-                      "text-lg md:text-2xl font-bold tracking-tight transition-colors duration-300", 
-                      isOpen ? theme.color : "text-foreground"
-                    )}>
-                      {category.title[language]}
-                    </h3>
+                    <div className="flex flex-col justify-center">
+                      <h3 className={cn(
+                        "text-lg md:text-2xl font-bold tracking-tight transition-colors duration-300", 
+                        isOpen ? theme.color : "text-foreground group-hover:text-primary"
+                      )}>
+                        {category.title[language]}
+                      </h3>
+                      {!isOpen && (
+                        <span className="text-xs text-primary/70 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 -mt-0.5 hidden sm:block">
+                          {language === "es" ? "Haz clic para expandir" : "Click to expand"}
+                        </span>
+                      )}
+                    </div>
                   </div>
                   
                   {/* Icono Indicador (Chevron) */}
                   <div className={cn(
-                    "p-2 rounded-full transition-all duration-300",
-                    isOpen ? cn("rotate-180", theme.bgColor) : "rotate-0 bg-transparent"
+                    "p-2 rounded-full transition-all duration-500",
+                    isOpen ? cn("rotate-180", theme.bgColor) : "rotate-0 bg-transparent group-hover:bg-primary/10"
                   )}>
                     <ChevronDown className={cn(
                       "h-5 w-5 transition-colors duration-300", 
-                      isOpen ? theme.color : "text-muted-foreground"
+                      isOpen ? theme.color : "text-muted-foreground group-hover:text-primary"
                     )} />
                   </div>
                 </button>
@@ -131,10 +157,11 @@ export default function Skills() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </section>
