@@ -13,8 +13,38 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Samuel Fuentes - Portafolio",
-  description: "Portafolio de Samuel Fuentes, Ingeniero de Software, Desarrollador Fullstack y Analista de datos.",
+  // Título y descripción base (para Google y pestaña del navegador)
+  title: "Samuel Fuentes | Ingeniero de Software & Fullstack",
+  description: "Portafolio de Samuel Fuentes, Ingeniero de Software, Desarrollador Fullstack y Analista de datos. Descubre mis proyectos, experiencia y habilidades.",
+  
+  // URL base para que Next.js pueda resolver las rutas absolutas de las imágenes
+  metadataBase: new URL("https://samuel-fuentes.vercel.app"),
+  
+  // Open Graph (WhatsApp, LinkedIn, Facebook, Discord, etc.)
+  openGraph: {
+    title: "Samuel Fuentes | Portafolio Profesional",
+    description: "Ingeniero de Software y Desarrollador Fullstack. Explora mis proyectos, experiencia y habilidades en TI.",
+    url: "https://samuel-fuentes.vercel.app",
+    images: [
+      {
+        // Por ahora usa tu foto de perfil, pero te recomiendo crear una imagen horizontal (ver nota abajo)
+        url: "/profile/me2.jpg", 
+        width: 1200,
+        height: 630,
+        alt: "Samuel Fuentes - Portafolio Profesional",
+      },
+    ],
+    locale: "es_CL",
+    type: "website",
+  },
+  
+  // Twitter Cards (X, Slack, Telegram a veces usan este formato)
+  twitter: {
+    card: "summary_large_image",
+    title: "Samuel Fuentes | Ingeniero de Software",
+    description: "Portafolio profesional de Samuel Fuentes. Desarrollador Fullstack y Analista de Datos.",
+    images: ["/profile/me.jpg"], // Idealmente la misma imagen horizontal
+  },
 };
 
 export default function RootLayout({
