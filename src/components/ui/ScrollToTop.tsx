@@ -37,12 +37,12 @@ export default function ScrollToTop() {
       onClick={scrollToTop}
       aria-label="Volver al inicio"
       className={cn(
-        // Posicionamiento y Estilos Base
-        "fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-all duration-300",
+        // Posicionamiento y Estilos Base (Ajustado para móvil y PC)
+        "fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-all duration-300",
         // Colores (Azul vibrante como tu referencia)
         "bg-blue-600 text-white hover:bg-blue-700 hover:scale-110 border border-blue-500/20",
         // Responsividad: Oculto en móvil (hidden), visible en md o superior (md:flex)
-        "hidden md:flex",
+        //"hidden md:flex",
         // Animación de entrada/salida
         isVisible 
           ? "opacity-100 translate-y-0" 

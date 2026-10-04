@@ -26,6 +26,7 @@ import { Certification, Experience, Project, SkillCategory, SocialLink, Stat, Hi
 // Esto hace que si cambias la carpeta mañana, solo cambias esto aquí
 export const PATHS = {
   cv: "/cv/CV.pdf",                 // Archivo en public/cv/CV.pdf
+  poster: "/projects/poster_dashboard.pdf", 
   profile: "/profile/me2.jpg",       // Foto en public/profile/me.jpg
   projects: "/projects",            // Carpeta base de proyectos
 };
@@ -251,6 +252,7 @@ export const skillsData: SkillCategory[] = [
       { name: { es: "Angular", en: "Angular" }, icon: Layout, color: "#DD0031" },
       { name: { es: "Ionic", en: "Ionic" }, icon: Smartphone, color: "#3880FF" },
       { name: { es: "Tailwind CSS", en: "Tailwind CSS" }, icon: Layout, color: "#38B2AC" },
+      { name: { es: "Apache ECharts", en: "Apache ECharts" }, icon: Layout, color: "#8b5cf6" },
       { name: { es: "TypeScript", en: "TypeScript" }, icon: Code2, color: "#3178C6" },
       { name: { es: "HTML/CSS", en: "HTML/CSS" }, icon: Layout, color: "#E34F26" },
     ],
@@ -260,7 +262,7 @@ export const skillsData: SkillCategory[] = [
     title: { es: "Backend", en: "Backend" },
     skills: [
       { name: { es: ".NET", en: ".NET" }, icon: Server, color: "#512BD4" },
-      { name: { es: "Java", en: "Java" }, icon: Code2, color: "#007396" },
+      { name: { es: "Java", en: "Java" }, icon: Code2, color: "#FF6C37" },
       { name: { es: "FastAPI", en: "FastAPI" }, icon: Server, color: "#009688" },
       { name: { es: "Python", en: "Python" }, icon: Code2, color: "#3776AB" },
       { name: { es: "C#", en: "C#" }, icon: Code2, color: "#239120" },
@@ -271,52 +273,66 @@ export const skillsData: SkillCategory[] = [
     title: { es: "Bases de Datos", en: "Databases" },
     skills: [
       { name: { es: "SQL", en: "SQL" }, icon: Database, color: "#4479A1" },
-      { name: { es: "PostgreSQL", en: "PostgreSQL" }, icon: Database, color: "#336791" },
-      { name: { es: "MySQL", en: "MySQL" }, icon: Database, color: "#4479A1" },
+      { name: { es: "PostgreSQL", en: "PostgreSQL" }, icon: Database, color: "#239120" },
+      { name: { es: "Oracle", en: "Oracle" }, icon: Database, color: "#DD0031" },
+      { name: { es: "MySQL", en: "MySQL" }, icon: Database, color: "#2496ED" },
       { name: { es: "SQLite", en: "SQLite" }, icon: Database, color: "#4479A1" },
       { name: { es: "RQLite", en: "RQLite" }, icon: Database, color: "#4479A1" },
+      { name: { es: "SQL Model/Alchemy", en: "SQL Model/Alchemy" }, icon: Database, color: "#4479A1" },
     ],
   },
   {
     id: "tools",
     title: { es: "Herramientas", en: "Tools" },
     skills: [
-      { name: { es: "Git & GitHub", en: "Git & GitHub" }, icon: Github, color: "#F05032" },
+      { name: { es: "Git & GitHub", en: "Git & GitHub" }, icon: Github, color: "#8b5cf6" },
+      { name: { es: "PowerBI", en: "PowerBI" }, icon: Layout, color: "#FFE66D" }, 
       { name: { es: "Docker", en: "Docker" }, icon: Server, color: "#2496ED" },
-      { name: { es: "Figma", en: "Figma" }, icon: Layout, color: "#F24E1E" },
+      { name: { es: "Figma", en: "Figma" }, icon: Layout, color: "#ec4899" },
       { name: { es: "Postman", en: "Postman" }, icon: Settings, color: "#FF6C37" },
       { name: { es: "Linux CLI", en: "Linux CLI" }, icon: Terminal, color: "#FCC624" },
       { name: { es: "Excel", en: "Excel" }, icon: Layout, color: "#217346" },
       { name: { es: "Unity 2D/3D/AR", en: "Unity 2D/3D/AR" }, icon: Monitor, color: "#000000" },
+      { name: { es: "Husky, Makefile, Formatters & Linters", en: "Husky, Makefile, Formatters & Linters" }, icon: Code2, color: "#6366f1" },
+      { name: { es: "Modelado UML", en: "UML Modeling" }, icon: Layout, color: "#6366f1" },
+      { name: { es: "Testing", en: "Testing" }, icon: Code2, color: "#ec4899" },
+      { name: { es: "SharePoint", en: "SharePoint" }, icon: Layout, color: "#2496ED" },
+      { name: { es: "LaTeX", en: "LaTeX" }, icon: Layout, color: "#217346" },
     ],
   },
   {
     id: "core",
     title: { es: "Competencias Core", en: "Core Competencies" },
     skills: [
-      { name: { es: "POO", en: "OOP" }, icon: Code2, color: "#eab308" },
-      { name: { es: "Scrum / Agile", en: "Scrum / Agile" }, icon: Users, color: "#f97316" },
-      { name: { es: "Modelado UML", en: "UML Modeling" }, icon: Layout, color: "#6366f1" },
+      { name: { es: "Scrum & Agile", en: "Scrum & Agile" }, icon: Users, color: "#f97316" },
+      { name: { es: "Gestión/Evaluación de Proyectos TI", en: "IT Project Management/Evaluation" }, icon: Globe, color: "#DD0031" },
       { name: { es: "Clean Code", en: "Clean Code" }, icon: Code2, color: "#10b981" },
+      { name: { es: "Análisis de datos & IA", en: "Data Analytics & AI" }, icon: Brain, color: "#0ea5e9" },
+      { name: { es: "Modelado UML", en: "UML Modeling" }, icon: Layout, color: "#6366f1" },
       { name: { es: "Estructuras de Datos", en: "Data Structures" }, icon: Database, color: "#ec4899" },
+      { name: { es: "Principios y Teorías de Visualizaciones efectivas", en: "Principles & Theories for Effective Visualizations" }, icon: Layout, color: "#14b8a6" },
       { name: { es: "Algoritmos", en: "Algorithms" }, icon: Code2, color: "#3b82f6" },
       { name: { es: "Web scraping", en: "Web scraping" }, icon: Eye, color: "#8b5cf6" },
       { name: { es: "Optimización", en: "Optimization" }, icon: Settings, color: "#db2777" },
       { name: { es: "Patrones de diseño", en: "Design Patterns" }, icon: Layout, color: "#14b8a6" },
       { name: { es: "Principios SOLID", en: "SOLID Principles" }, icon: Code2, color: "#f43f5e" },
       { name: { es: "Ingeniería de Software", en: "Software Engineering" }, icon: Code2, color: "#0ea5e9" },
+      { name: { es: "Estándares & Buenas prácticas", en: "Standards & Best practices" }, icon: Settings, color: "#db2777" },
+      { name: { es: "Calidad de código", en: "Code quality" }, icon: Settings, color: "#14b8a6" },
+      { name: { es: "POO", en: "OOP" }, icon: Code2, color: "#eab308" },
+      
     ],
   },
   {
     id: "soft",
     title: { es: "Habilidades Blandas", en: "Soft Skills" },
     skills: [
-      { name: { es: "Trabajo en Equipo", en: "Teamwork" }, icon: Users, color: "#FF6B6B" },
-      { name: { es: "Comunicación", en: "Communication" }, icon: Users, color: "#4ECDC4" },
-      { name: { es: "Liderazgo", en: "Leadership" }, icon: Award, color: "#FFE66D" },
-      { name: { es: "Resolución de Problemas", en: "Problem Solving" }, icon: Brain, color: "#1A535C" },
-      { name: { es: "Adaptabilidad", en: "Adaptability" }, icon: Globe, color: "#FF9F1C" },
-      { name: { es: "Creatividad", en: "Creativity" }, icon: Brain, color: "#0ea5e9" },
+      { name: { es: "Liderazgo & Trabajo en Equipo", en: "Leadership & Teamwork" }, icon: Users, color: "#FF6B6B" },
+      { name: { es: "Comunicación efectiva & Empatía", en: "Effective Communication & Empathy" }, icon: Users, color: "#4ECDC4" },
+      { name: { es: "Pensamiento analítico y atención a detalles", en: "Analytical Thinking and Attention to Detail" }, icon: Brain, color: "#1A535C" },
+      { name: { es: "Resolución de Problemas", en: "Problem Solving" }, icon: Award, color: "#FFE66D" }, 
+      { name: { es: "Proactividad & Autonomía", en: "Proactivity & Autonomy" }, icon: Globe, color: "#FF9F1C" },
+      { name: { es: "Creatividad & Aprendizaje continuo", en: "Creativity & Continuous Learning" }, icon: Brain, color: "#0ea5e9" },
     
     ],
   },
@@ -324,11 +340,12 @@ export const skillsData: SkillCategory[] = [
 
 // --- PROYECTOS ---
 export const projectsData: Project[] = [
-    {
+  {
     id: "vyv",
     title: {
-      es: "Sitio web corporativo + E-commerce VyV Refrigeración",
-      en: "Corporate website with e-commerce functionality VyV Refrigeración"
+
+      es: "Sitio web corporativo + E-commerce - V&V",
+      en: "Corporate website + E-commerce - V&V"
     },
     description: {
       es: "Sitio web corporativo y Cotización de catálogo de productos, gestión de cotizaciones y de productos, solicitado por la empresa Refrigeración y Climatizacion VyV.",
@@ -345,11 +362,13 @@ export const projectsData: Project[] = [
     ],
     featured: true,
   },
-    {
+
+  {
     id: "montecristo",
     title: {
-      es: "Sitio web corporativo + E-commerce MonteCristo",
-      en: "Corporate website with e-commerce functionality MonteCristo"
+
+      es: "Sitio web corporativo + E-commerce - MonteCristo",
+      en: "Corporate website + E-commerce - MonteCristo"
     },
     description: {
       es: "Sitio web corporativo y Plataforma e-commerce completa con gestión de inventario, cotizaciones y panel administrativo. Implementación de carrito de compras, procesamiento de pedidos y sistema de búsqueda avanzada.",
@@ -367,18 +386,19 @@ export const projectsData: Project[] = [
     featured: true,
   },
 
-    {
+  {
     id: "dashboard-financiero",
     title: {
-      es: "Dashboard Financiero Inteligente",
-      en: "Intelligent Financial Dashboard"
+
+      es: "Dashboard web - Predicción de Ventas, Trazabilidad y Gestión (según rol)",
+      en: "Sales forecast, Traceability & Management (by role) - Dashboard web"
     },
     description: {
-      es: "Dashboard web inteligente con predicciones financieras, clasificación de clientes y ejecutivos por riesgo. Excelente UI/UX y visualizaciones efectivas. Procesa datos históricos y se conecta a un motor de Machine Learning. Hecho en HackaDISC 2026 en 3 días para INSECAP",
-      en: "Intelligent dashboard web with financial predictions, customers and managers classification by risk. Excellent UI/UX and effective visualizations. Processes historical data and connects to a Machine Learning engine. Built in 3 days for INSECAP's HackaDISC 2026 event."
+      es: "2 Dashboards web inteligentes (para ejecutivos y gerentes) con predicciones financieras, clasificación de clientes y ejecutivos por riesgo. Excelente UI/UX y visualizaciones efectivas. Procesa datos históricos y se conecta a un motor de Machine Learning propio. Hecho en HackaDISC 2026 en 3 días para INSECAP",
+      en: "2 Intelligent dashboards web (for executives and managers) with financial predictions, customers and managers classification by risk. Excellent UI/UX and effective visualizations. Processes historical data and connects to a Machine Learning engine. Built in 3 days for INSECAP's HackaDISC 2026 event."
     },
     image: `${PATHS.projects}/dashboard.png`,
-    tags: ["Next.js", ".NET", "FastAPI", "TypeScript", "C#", "Python", "PostgreSQL", "Tailwind", "HTML", "CSS"],
+    tags: ["Next.js", "FastAPI", "ApacheECharts", "TypeScript", "Python", "PostgreSQL", "Tailwind", "HTML", "CSS"],
     actions: [
       {
         label: { es: "Ver Demo", en: "Live Demo" },
@@ -389,14 +409,49 @@ export const projectsData: Project[] = [
     featured: true,
   },
 
-    {
-    id: "bygcompras",
+  {
+    id: "dashboard-ventas-clientes",
     title: {
-      es: "Sistema de Compras ByG Ingeniería",
-      en: "Purchasing System for ByG Engineering"
+
+      es: "Dashboard web - Análisis de Ingresos y Clientes",
+      en: "Revenue and Customer Analysis - Dashboard web"
     },
     description: {
-      es: "Sistema de comporas para empresa de ingeniería con contexto minero, eléctrico, industrial y construcción. Gestión de compras, proveedores, cotizaciones, órdenes de compra y usuarios. Solicitado por ByG Ingeniería.",
+      es: "Dashboard web de análisis de ventas y clientes. Una visualización efectiva, interactiva y totalmente flexible con excelente UI/UX que transforma libros contables y silos de información en una herramienta interactiva de toma de decisiones estratégicas. Reemplaza Excel por un sistema interactivo de protección de capital y diagnóstico estratégico que identifica claramente salud crediticia, rentabilidad por tipo de proyecto, dependencias, evolución financiera, riesgos de clientes y sus tipos",
+      en: "Sales and customer Dashboard web. An effective, interactive, and fully flexible visualization tool with excellent UI/UX that transforms ledgers and information silos into interactive strategic decision-making tools. The goal is to replace static Excel spreadsheets with an interactive capital protection and strategic diagnostic system that clearly identifies creditworthiness, profitability by project type, dependencies, financial progress, and customer risks and their types.",
+    },
+    image: `${PATHS.projects}/dashboard_ventas_clientes.jpg`,
+    tags: ["Next.js", "FastAPI", "ApacheECharts", "TypeScript", "Python", "PostgreSQL", "Tailwind", "HTML", "CSS"],
+    actions: [
+      {
+        label: { es: "Frontend", en: "Frontend" },
+        url: "https://github.com/xPrismatico/visual_dashboard_frontend",
+        icon: Github,
+      },
+      {
+        label: { es: "Backend", en: "Backend" },
+        url: "https://github.com/itspalmera/Visual_FastAPI",
+        icon: Github,
+      },
+      {
+        label: { es: "PDF (explicaciones y vista)", en: "PDF (explanations and visuals)" },
+        url: PATHS.poster,
+        icon: Globe,
+      },
+    ],
+    featured: true,
+  },
+
+
+  {
+    id: "bygcompras",
+    title: {
+
+      es: "Sistema de Solicitudes de Compra - ByG",
+      en: "Purchasing requests System - ByG"
+    },
+    description: {
+      es: "Sistema de solicitudes de compra para empresa de ingeniería con contexto minero, eléctrico, industrial y construcción. Gestión automatizada de solicitudes de compra, proveedores, cotizaciones, órdenes de compra y usuarios. Solicitado por ByG Ingeniería.",
       en: "Purchasing system for engineering company with mining, electrical, industrial and construction context. Management of purchases, suppliers, quotes, purchase orders and users. Requested by ByG Ingeniería.",
     },
     image: `${PATHS.projects}/bygsistemacompras.jpg`,
@@ -411,14 +466,15 @@ export const projectsData: Project[] = [
     featured: true,
   },
 
-    {
+  {
     id: "predictor-financiero",
     title: {
-      es: "Predictor Financiero Inteligente",
-      en: "Intelligent Financial Predictor"
+
+      es: "Predictor Financiero de Pagos y Clientes",
+      en: "Financial Predictor for Payments and Customers"
     },
     description: {
-      es: "Sistema web inteligente que permite anticipar el comportamiento de pago de clientes clasificándolos por riesgo y predecir cuánto tardarán en pagar. Procesa datos históricos y se conecta a un motor de Machine Learning. Hecho en HackaDISC en 3 días para INSECAP",
+      es: "Sistema web inteligente que permite anticipar el comportamiento de pago de clientes clasificándolos por riesgo y predecir cuánto tardarán en pagar. Procesa datos históricos y se conecta a un motor de Machine Learning propio. Hecho en HackaDISC 2025 en 3 días para INSECAP",
       en: "Intelligent web system that anticipates customer payment behavior by classifying them by risk and predicting payment time. Processes historical data and connects to a Machine Learning engine. Built in 3 days for INSECAP's HackaDISC event."
     },
     image: `${PATHS.projects}/predictorfinanciero.jpg`,
@@ -435,16 +491,18 @@ export const projectsData: Project[] = [
         icon: Github,
       },
       {
-        label: { es: "IA", en: "AI" },
+        label: { es: "Motor IA", en: "AI Motor" },
         url: "https://github.com/GPScript1/fastAPI",
         icon: Github,
       },
     ],
     featured: false,
   },
-{
+
+  {
     id: "selene",
     title: {
+
       es: "SELENE",
       en: "SELENE"
     },

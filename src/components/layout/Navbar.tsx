@@ -129,7 +129,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between mt-4 pt-4 border-t border-border">
              <button onClick={toggleLanguage} className="flex items-center gap-2 text-sm">
                 <Globe className="h-4 w-4" />
-                Cambiar a {language === 'es' ? 'Inglés' : 'Spanish'}
+                {language === 'es' ? 'Inglés' : 'Spanish'}
              </button>
              {mounted && (
                 <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>

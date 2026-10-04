@@ -114,7 +114,7 @@ export default function Experience() {
       <div className="container mx-auto px-4 md:px-8">
         <SectionTitle
           title={language === "es" ? "Experiencias y Destacados" : "Experience & Highlights"}
-          subtitle={language === "es" ? "Iniciativas, competencias y roles activos en TI" : "Initiatives, competitions, and active IT roles"}
+          subtitle={language === "es" ? "Iniciativas, competencias y roles activos" : "Initiatives, competitions, and active roles"}
         />
 
         <div className="mt-8 mb-6 flex items-center justify-end text-sm text-blue-400/80 animate-pulse pr-2 md:pr-4">
