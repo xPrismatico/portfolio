@@ -26,7 +26,7 @@ import { Certification, Experience, Project, SkillCategory, SocialLink, Stat, Hi
 // Esto hace que si cambias la carpeta mañana, solo cambias esto aquí
 export const PATHS = {
   cv: "/cv/CV.pdf",                 // Archivo en public/cv/CV.pdf
-  profile: "/profile/me.jpg",       // Foto en public/profile/me.jpg
+  profile: "/profile/me2.jpg",       // Foto en public/profile/me.jpg
   projects: "/projects",            // Carpeta base de proyectos
 };
 
@@ -54,7 +54,6 @@ export const TECH_ICONS: Record<string, string> = {
 };
 
 
-// --- HIGHLIGHTS / MOMENTOS DESTACADOS ---
 // --- HIGHLIGHTS / MOMENTOS DESTACADOS ---
 export const highlightsData: Highlight[] = [
   {
@@ -371,8 +370,8 @@ export const projectsData: Project[] = [
     {
     id: "dashboard-financiero",
     title: {
-      es: "Dashboard Financiero Inteligente INSECAP",
-      en: "Intelligent Financial Dashboard - INSECAP"
+      es: "Dashboard Financiero Inteligente",
+      en: "Intelligent Financial Dashboard"
     },
     description: {
       es: "Dashboard web inteligente con predicciones financieras, clasificación de clientes y ejecutivos por riesgo. Excelente UI/UX y visualizaciones efectivas. Procesa datos históricos y se conecta a un motor de Machine Learning. Hecho en HackaDISC 2026 en 3 días para INSECAP",
