@@ -57,7 +57,7 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-              className="group relative flex flex-col p-6 rounded-2xl bg-card/50 border border-blue-900/20 hover:border-blue-500/30 hover:bg-card/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="group relative flex flex-col p-6 rounded-2xl bg-card/50 border border-blue-900/20 hover:border-blue-500/30 hover:bg-card/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer active:scale-[0.98] active:border-blue-500/30 active:bg-card/80"
             >
               {/* Icono Flotante en la esquina */}
               {cert.link && (
@@ -74,14 +74,14 @@ export default function Certifications() {
               <div className="flex gap-5">
                 {/* Icono Principal (Izquierda) */}
                 <div className="shrink-0 mt-1">
-                  <div className="h-12 w-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+                  <div className="h-12 w-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 transition-all duration-300 group-hover:bg-blue-500 group-hover:text-white group-active:bg-blue-500 group-active:text-white">
                     {getIcon(cert.type)}
                   </div>
                 </div>
 
                 {/* Contenido */}
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-foreground pr-6 leading-tight mb-1 group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-lg font-bold text-foreground pr-6 leading-tight mb-1 transition-colors group-hover:text-blue-400 group-active:text-blue-400">
                     {cert.title[language]}
                   </h3>
                   <p className="text-sm font-medium text-blue-500 mb-2">

@@ -230,13 +230,13 @@ export const stats: Stat[] = [
     icon: Code2,
   },
   {
-    value: "4+",
+    value: "5+",
     label: { es: "Años Estudiando", en: "Years Studying" },
     icon: Brain,
   },
   {
-    value: "3",
-    label: { es: "Hackatones", en: "Hackathons" },
+    value: "3+",
+    label: { es: "Años de experiencia", en: "Years of experience" },
     icon: Rocket,
   },
 ];

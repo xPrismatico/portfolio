@@ -127,7 +127,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.8, type: "spring", bounce: 0.4 }}
               className="absolute top-2 -right-2 sm:top-4 sm:-right-4 md:top-8 md:-right-6 z-20"
             >
-                <div className="group cursor-pointer bg-background/90 backdrop-blur-md border border-border p-2 sm:p-3 rounded-2xl shadow-xl flex items-center gap-2 sm:gap-3 transition-all duration-300 hover:scale-110 hover:bg-background hover:border-blue-500/50 hover:shadow-blue-500/20">
+                <div className="group cursor-pointer bg-background/90 backdrop-blur-md border border-border p-2 sm:p-3 rounded-2xl shadow-xl flex items-center gap-2 sm:gap-3 transition-all duration-300 hover:scale-110 hover:bg-background hover:border-blue-500/50 hover:shadow-blue-500/20 active:scale-95 active:border-blue-500/50 active:bg-background">
                     <div className="bg-blue-600 p-1.5 sm:p-2 rounded-lg text-white group-hover:rotate-12 transition-transform duration-300">
                         <Code2 className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
                     </div>
@@ -147,7 +147,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 1, type: "spring", bounce: 0.4 }}
               className="absolute bottom-2 -left-2 sm:bottom-4 sm:-left-4 md:bottom-8 md:-left-6 z-20"
             >
-                <div className="group cursor-pointer bg-background/90 backdrop-blur-md border border-border p-2 sm:p-3 rounded-2xl shadow-xl flex items-center gap-2 sm:gap-3 transition-all duration-300 hover:scale-110 hover:bg-background hover:border-purple-500/50 hover:shadow-purple-500/20">
+                <div className="group cursor-pointer bg-background/90 backdrop-blur-md border border-border p-2 sm:p-3 rounded-2xl shadow-xl flex items-center gap-2 sm:gap-3 transition-all duration-300 hover:scale-110 hover:bg-background hover:border-purple-500/50 hover:shadow-purple-500/20 active:scale-95 active:border-purple-500/50 active:bg-background">
                     <div className="bg-purple-600 p-1.5 sm:p-2 rounded-lg text-white group-hover:-rotate-12 transition-transform duration-300">
                         <Sparkles className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
                     </div>

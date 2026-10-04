@@ -169,7 +169,7 @@ export default function Experience() {
               key={uniqueKey}
               data-index={index}
               onClick={() => scrollToCard(index)}
-              className="shrink-0 w-[85vw] md:w-[450px] relative transition-transform duration-500"
+              className="shrink-0 w-[85vw] md:w-[450px] relative transition-transform duration-300 active:scale-[0.98] cursor-pointer"
             >
               {/* TARJETA ANIMADA */}
               <div 
@@ -185,7 +185,7 @@ export default function Experience() {
                   <img 
                     src={item.image} 
                     alt={item.title[language]} 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 group-active:scale-110"
                   />
                   {/* Gradiente oscuro para fusionar la imagen con el texto */}
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
@@ -211,7 +211,7 @@ export default function Experience() {
                   </div>
 
                   <h3 className={cn(
-                    "text-xl font-bold mb-1 line-clamp-2 transition-colors",
+                    "text-xl font-bold mb-1 line-clamp-2 transition-colors group-hover:text-blue-400 group-active:text-blue-400",
                     isActive ? "text-blue-400" : "text-foreground"
                   )}>
                     {item.title[language]}

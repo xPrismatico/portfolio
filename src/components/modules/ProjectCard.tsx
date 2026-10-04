@@ -31,7 +31,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-border/50 bg-card text-card-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-2"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-border/50 bg-card text-card-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-2 cursor-pointer active:scale-[0.98] active:border-primary/30 active:shadow-md"
     >
       {/* --- IMAGEN --- */}
       <div className="relative h-56 w-full overflow-hidden bg-muted">
@@ -44,7 +44,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           src={project.image}
           alt={project.title[language]}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          className="object-cover transition-transform duration-500 group-hover:scale-110 group-active:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-80" />
         
@@ -60,7 +60,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       {/* --- CONTENIDO --- */}
       <div className="flex flex-1 flex-col p-6 pt-2 relative">
         {/* Título superpuesto visualmente un poco arriba o normal */}
-        <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+        <h3 className="text-2xl font-bold mb-3 transition-colors group-hover:text-primary group-active:text-primary">
             {/* CAMBIO AQUÍ: Usamos [language] */}
             {project.title[language]}
         </h3>
