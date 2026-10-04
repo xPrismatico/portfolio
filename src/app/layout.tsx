@@ -14,7 +14,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   // Título y descripción base (para Google y pestaña del navegador)
-  title: "Samuel Fuentes | Ingeniero de Software & Fullstack",
+  title: "Samuel Fuentes | Ing. Software & Fullstack",
   description: "Portafolio de Samuel Fuentes, Ingeniero de Software, Desarrollador Fullstack y Analista de datos. Descubre mis proyectos, experiencia y habilidades.",
   
   // URL base para que Next.js pueda resolver las rutas absolutas de las imágenes
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   // Open Graph (WhatsApp, LinkedIn, Facebook, Discord, etc.)
   openGraph: {
     title: "Samuel Fuentes | Portafolio Profesional",
-    description: "Ingeniero de Software y Desarrollador Fullstack. Explora mis proyectos, experiencia y habilidades en TI.",
+    description: "Ingeniero de Software, Desarrollador Fullstack y Analista de datos. Explora mis proyectos, experiencia y habilidades.",
     url: "https://samuel-fuentes.vercel.app",
     images: [
       {

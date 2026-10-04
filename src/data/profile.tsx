@@ -348,11 +348,11 @@ export const projectsData: Project[] = [
       en: "Corporate website + E-commerce - V&V"
     },
     description: {
-      es: "Sitio web corporativo y Cotización de catálogo de productos, gestión de cotizaciones y de productos, solicitado por la empresa Refrigeración y Climatizacion VyV.",
-      en: "Corporate website with product catalog, quotation management and product management, requested by the company Refrigeración y Climatizacion VyV.",
+      es: "Sitio web corporativo y Cotización de catálogo de productos, gestión de cotizaciones y de productos, solicitado por la empresa Refrigeración V&V. Aumenté ventas, clientes y posicioné a las empresas en redes.",
+      en: "Corporate website with product catalog, quotation management and product management, requested by the company Refrigeración V&V. I increased sales and the number of customers and helped the companies establish a presence on social media.",
     },
     image: `${PATHS.projects}/vyvrefrigeracion.jpg`,
-    tags: ["Next.js", "TypeScript", ".NET", "PostgreSQL", "SQL", "Tailwind CSS"],
+    tags: ["Next.js", "TypeScript", ".NET", "PostgreSQL", "SQL", "Tailwind CSS", "HTML", "CSS"],
     actions: [
       {
         label: { es: "Ver Sitio", en: "View Site" },
@@ -375,7 +375,7 @@ export const projectsData: Project[] = [
       en: "Corporate website and complete e-commerce platform with inventory management, quotes, and admin panel. Implementation of shopping cart, order processing, and advanced search system.",
     },
     image: `${PATHS.projects}/ecommerce.jpg`,
-    tags: ["Next.js", "TypeScript", ".NET", "SQL", "Tailwind CSS"],
+    tags: ["Next.js", "TypeScript", ".NET", "SQL", "Tailwind CSS", "HTML", "CSS"],
     actions: [
       {
         label: { es: "Ver Demo", en: "Live Demo" },
@@ -402,7 +402,7 @@ export const projectsData: Project[] = [
     actions: [
       {
         label: { es: "Ver Demo", en: "Live Demo" },
-        url: "dashboard-comercial-insecap.vercel.app",
+        url: "https://dashboard-comercial-insecap.vercel.app",
         icon: Globe,
       },
     ],
@@ -459,7 +459,7 @@ export const projectsData: Project[] = [
     actions: [
       {
         label: { es: "Ver Sitio", en: "View Site" },
-        url: "https://bygfrontend.vercel.app",
+        url: "https://bygfrontend.vercel.app/inicio-sesion",
         icon: Globe,
       },
     ],
