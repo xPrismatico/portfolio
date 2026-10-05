@@ -130,10 +130,10 @@ export default function Contact() {
                   key={link.name} 
                   href={link.url} 
                   target="_blank" 
-                  className="h-12 rounded-xl bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group shadow-sm"
+                  className="h-12 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group shadow-xl"
                   aria-label={link.name}
                 >
-                  <link.icon className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                  <link.icon className="h-5 w-5 group-hover:scale-115 transition-transform" />
                 </a>
               ))}
             </div>

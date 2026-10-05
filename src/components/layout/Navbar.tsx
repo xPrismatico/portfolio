@@ -63,7 +63,7 @@ export default function Navbar() {
                 // Lógica de estilos:
                 // Si es la sección activa, color primario y negrita. Si no, grisáceo.
                 activeSection === link.id 
-                    ? "text-primary font-bold scale-105" 
+                    ? "text-primary font-bold scale-120" 
                     : "text-foreground/70 hover:text-primary hover:font-semibold"
               )}
             >
@@ -78,6 +78,7 @@ export default function Navbar() {
 
         {/* Controls (Theme & Lang) */}
         <div className="hidden md:flex items-center gap-4">
+            
             <button
                 onClick={toggleLanguage}
                 className="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors text-foreground/80"
