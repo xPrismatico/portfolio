@@ -93,21 +93,30 @@ return (
               </span>
             </h1>
             
-            {/* Rol con Efecto Máquina de Escribir */}
+            {/* Rol con Efecto Máquina de Escribir (Protegido contra saltos de línea a mitad de palabra) */}
             <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-blue-600 dark:text-blue-400 flex flex-wrap justify-center md:justify-start items-center min-h-[32px]">
-              {role[language].split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, display: "none" }}
-                  animate={{ opacity: 1, display: "inline" }}
-                  transition={{
-                    duration: 0.1,
-                    delay: 0.8 + index * 0.04, // Comienza a escribir después de que el texto entra
-                  }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
+              {role[language].split(" ").map((word, wordIndex, array) => {
+                // Calculamos cuántas letras van antes de esta palabra para mantener el timing fluido
+                const previousChars = array.slice(0, wordIndex).join(" ").length + (wordIndex > 0 ? 1 : 0);
+                
+                return (
+                  <span key={wordIndex} className="inline-block whitespace-nowrap mr-[0.25em]">
+                    {word.split("").map((char, charIndex) => (
+                      <motion.span
+                        key={charIndex}
+                        initial={{ opacity: 0, display: "none" }}
+                        animate={{ opacity: 1, display: "inline" }}
+                        transition={{
+                          duration: 0.1,
+                          delay: 0.8 + (previousChars + charIndex) * 0.04,
+                        }}
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
+                  </span>
+                );
+              })}
               {/* Cursor parpadeante */}
               <motion.span
                 animate={{ opacity: [1, 0, 1] }}
@@ -178,7 +187,8 @@ return (
             className="absolute top-1/2 left-4/7 -translate-x-3/7 -translate-y-1/2 w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[450px] md:h-[450px] bg-gradient-to-tr from-blue-600/40 via-sky-800/50 to-purple-600/40 rounded-full blur-[80px] md:blur-[100px] -z-10" 
           />
 
-          <div className="relative h-[260px] w-[260px] sm:h-[300px] sm:w-[300px] md:h-[380px] md:w-[380px] shrink-0">
+          {/* Tamaños ajustados: En "md" se reduce para evitar superposición con el texto */}
+          <div className="relative h-[260px] w-[260px] sm:h-[300px] sm:w-[300px] md:h-[300px] md:w-[300px] lg:h-[380px] lg:w-[380px] shrink-0">
             {/* Anillo exterior rotatorio segmentado */}
             <motion.div 
               animate={{ rotate: 360 }}
