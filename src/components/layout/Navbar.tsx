@@ -45,7 +45,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 transition-all duration-300">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-8">
+      <div className="container mx-auto flex h-12 items-center justify-between px-4 sm:px-8">
         
         {/* Logo */}
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>

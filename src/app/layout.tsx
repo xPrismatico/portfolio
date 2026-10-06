@@ -61,7 +61,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <LanguageProvider>
             <Navbar />
-            <main className="flex-grow pt-16">
+            <main className="flex-grow pt-12">
               {children}
             </main>
           </LanguageProvider>

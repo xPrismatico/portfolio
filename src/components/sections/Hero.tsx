@@ -26,7 +26,7 @@ export default function Hero() {
   };
 
 return (
-    <section id="hero" className="relative flex min-h-[90vh] flex-col justify-center py-20 md:py-0">
+    <section id="hero" className="relative flex min-h-[90vh] flex-col justify-center py-20 mt-2 md:py-0">
       
       {/* Fondo de "Constelaciones" (Partículas orgánicas y esparcidas) */}
       <div className="absolute inset-0 pointer-events-none -z-20 overflow-hidden [mask-image:radial-gradient(ellipse_100%_100%_at_50%_50%,#000_10%,transparent_80%)]">
