@@ -32,13 +32,18 @@ export default function Footer() {
                 ? "Ingeniero de Software y Desarrollador Fullstack apasionado por crear soluciones innovadoras y de calidad."
                 : "Software Engineer and Fullstack Developer passionate about creating innovative and quality solutions."}
             </p>
-            <div className="flex gap-3">
+            <div className="flex items center gap-3 pt-2">
                {socialLinks.map((link) => (
-                 <a key={link.name} href={link.url} target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+                 <a 
+                 key={link.name} 
+                 href={link.url} 
+                 target="_blank" 
+                 className="p-2.5 rounded-full bg-muted/50 hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 border border-border">
                     <link.icon className="h-5 w-5" />
                  </a>
                ))}
             </div>
+
           </div>
 
           {/* Columna 2: Enlaces Rápidos */}
@@ -69,6 +74,9 @@ export default function Footer() {
                 </li>
                 {/* USAR VARIABLE */}
                 <li>{personalInfo.location}</li>
+                <li>
+                  {personalInfo.contact.phone}
+                </li>
              </ul>
           </div>
         </div>
@@ -76,15 +84,13 @@ export default function Footer() {
         {/* Barra Inferior */}
         <div className="border-t border-border/40 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
           <p>
-             &copy; {year} Samuel Fuentes Ávila. {language === "es" ? "Todos los derechos reservados." : "All rights reserved."}
+             &copy; {year} Samuel Fuentes Ávila.
           </p>
           <div className="flex items-center gap-1">
              <span>{language === "es" ? "Hecho con" : "Made with"}</span>
              <Heart className="h-3 w-3 text-red-500 fill-red-500 animate-pulse" />
              <span>{language === "es" ? "usando" : "using"}</span>
              <span className="font-medium text-foreground">Next.js</span>
-             <span>&</span>
-             <span className="font-medium text-foreground">Tailwind CSS</span>
           </div>
         </div>
       </div>

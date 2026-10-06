@@ -1,9 +1,12 @@
 "use client";
 
+
+
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Moon, Sun, Menu, X, Globe } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/libs/utils";
 import { useScrollSpy } from "@/hooks/useScrollSpy"; // Asegúrate de importar el hook
 
@@ -52,7 +55,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -63,7 +66,7 @@ export default function Navbar() {
                 // Lógica de estilos:
                 // Si es la sección activa, color primario y negrita. Si no, grisáceo.
                 activeSection === link.id 
-                    ? "text-primary font-bold scale-120" 
+                    ? "text-primary font-bold scale-115" 
                     : "text-foreground/70 hover:text-primary hover:font-semibold"
               )}
             >
@@ -77,7 +80,7 @@ export default function Navbar() {
         </div>
 
         {/* Controls (Theme & Lang) */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-2">
             
             <button
                 onClick={toggleLanguage}
@@ -111,35 +114,70 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Dropdown */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-lg p-6 flex flex-col gap-4 shadow-lg absolute w-full h-screen">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => scrollToSection(e, link.href)}
-              className={cn(
-                "text-xl font-medium py-4 border-b border-border/50 transition-colors",
-                activeSection === link.id ? "text-primary font-bold" : "text-foreground"
-              )}
-            >
-              {link.name}
-            </a>
-          ))}
-          <div className="flex items-center justify-between mt-4 pt-4 border-t border-border">
-             <button onClick={toggleLanguage} className="flex items-center gap-2 text-sm">
-                <Globe className="h-4 w-4" />
-                {language === 'es' ? 'Inglés' : 'Spanish'}
-             </button>
-             {mounted && (
-                <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-                    {theme === "dark" ? <Sun className="text-yellow-500" /> : <Moon className="text-blue-600" />}
+      {/* Mobile Dropdown (Animado y Adaptable) */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            // top-full hace que empiece exactamente debajo de la barra de navegación (los 64px de alto), 
+            // quitamos h-screen para que solo ocupe lo necesario
+            className="md:hidden absolute top-full left-0 w-full border-b border-border/50 bg-background/95 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden"
+          >
+            {/* Lista de Enlaces en Cascada */}
+            <div className="flex flex-col px-6 py-4">
+              {navLinks.map((link, index) => (
+                <motion.a
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  className={cn(
+                    "text-lg font-semibold py-3.5 border-b border-border/30 transition-colors active:scale-95 origin-left",
+                    activeSection === link.id ? "text-primary" : "text-foreground/80 hover:text-foreground"
+                  )}
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Controles: Botones táctiles grandes para móvil */}
+            <div className="grid grid-cols-2 gap-4 px-6 pb-8 pt-2">
+              <button 
+                onClick={toggleLanguage} 
+                className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-card border border-border/50 hover:bg-muted active:scale-95 active:border-primary/50 transition-all shadow-sm"
+              >
+                <Globe className="h-5 w-5 text-primary" />
+                <span className="font-medium text-sm">{language === 'es' ? 'English' : 'Español'}</span>
+              </button>
+              
+              {mounted && (
+                <button 
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-card border border-border/50 hover:bg-muted active:scale-95 active:border-yellow-500/50 dark:active:border-blue-500/50 transition-all shadow-sm"
+                >
+                  {theme === "dark" ? (
+                    <>
+                      <Sun className="h-5 w-5 text-yellow-500" />
+                      <span className="font-medium text-sm">{language === 'es' ? 'Claro' : 'Light'}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Moon className="h-5 w-5 text-blue-600" />
+                      <span className="font-medium text-sm">{language === 'es' ? 'Oscuro' : 'Dark'}</span>
+                    </>
+                  )}
                 </button>
-             )}
-          </div>
-        </div>
-      )}
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

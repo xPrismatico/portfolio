@@ -6,7 +6,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import CopyButton from "@/components/modules/CopyButton";
-import { Mail, Phone, MapPin, Send, Download, CheckCircle2 } from "lucide-react";
+import { Mail, Send, Download, MessageCircle, ExternalLink, Phone } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -52,85 +52,132 @@ export default function Contact() {
                   {language === "es" ? "Información de Contacto" : "Contact Information"}
                 </h3>
                 
-                <div className="space-y-6">
-                  {/* Email */}
-                  <div className="group relative flex items-center gap-4 p-3 rounded-xl transition-colors hover:bg-muted/30">
-                    <div className="h-10 w-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
-                      <Mail className="h-5 w-5" />
+                <div className="space-y-3 sm:space-y-4">
+                  {/* Tarjeta 1: Email */}
+                  <div 
+                    onClick={() => window.open(`mailto:${personalInfo.contact.email}`, '_blank')}
+                    className="group flex items-center justify-between gap-2 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-card border border-border/50 transition-all duration-300 hover:border-blue-500/50 hover:shadow-md cursor-pointer active:scale-[0.98] active:bg-muted/50"
+                  >
+                    {/* Contenedor Izquierdo (Icono + Texto) con min-w-0 y flex-1 para truncar bien */}
+                    <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+                      {/* Reducimos sutilmente el icono en móviles muy pequeños */}
+                      <div className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+                        <Mail className="h-5 w-5 sm:h-6 sm:w-6 group-hover:scale-110 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[10px] sm:text-xs text-muted-foreground font-medium mb-0.5 group-hover:text-foreground transition-colors truncate">
+                          {language === "es" ? "Correo Electrónico" : "Email"}
+                        </p>
+                        {/* El truncate aquí ahora sí funcionará gracias al min-w-0 superior */}
+                        <p className="text-xs sm:text-sm md:text-base font-bold text-foreground truncate">
+                          {personalInfo.contact.email}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold mb-0.5">
-                        {language === "es" ? "Correo Electrónico" : "Email Address"}
-                      </p>
-                      {/* USAR VARIABLE */}
-                      <a href={`mailto:${personalInfo.contact.email}`} className="text-base font-medium hover:text-primary transition-colors truncate block">
-                        {personalInfo.contact.email}
-                      </a>
-                    </div>
-                    {/* USAR VARIABLE */}
-                    <CopyButton textToCopy={personalInfo.contact.email} />
-                  </div>
-
-                    {/* Teléfono */}
-                  <div className="group relative flex items-center gap-4 p-3 rounded-xl transition-colors hover:bg-muted/30">
-                    <div className="h-10 w-10 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold mb-0.5">
-                        {language === "es" ? "Teléfono" : "Phone Number"}
-                      </p>
-                      {/* USAR VARIABLE */}
-                      <a href={personalInfo.contact.phoneUrl} className="text-base font-medium hover:text-primary transition-colors block">
-                        {personalInfo.contact.phone}
-                      </a>
-                    </div>
-                    {/* USAR VARIABLE */}
-                    <CopyButton textToCopy={personalInfo.contact.phone} />
-                  </div>
-
-                    {/* Ubicación */}
-                  <div className="group relative flex items-center gap-4 p-3 rounded-xl transition-colors hover:bg-muted/30">
-                    <div className="h-10 w-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold mb-0.5">
-                        {language === "es" ? "Ubicación" : "Location"}
-                      </p>
-                      {/* USAR VARIABLE */}
+                    
+                    {/* Botones de acción (shrink-0 para que nunca sean aplastados ni expulsados) */}
+                    <div className="flex items-center gap-1 sm:gap-2 shrink-0" onClick={(e) => e.stopPropagation()}>
+                      <CopyButton textToCopy={personalInfo.contact.email} />
                       <a 
-                        href={personalInfo.mapUrl} 
+                        href={`mailto:${personalInfo.contact.email}`} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-base font-medium hover:text-primary transition-colors block"
+                        className="p-1.5 sm:p-2 rounded-lg text-muted-foreground hover:text-blue-500 hover:bg-blue-500/10 transition-colors"
+                        title={language === "es" ? "Enviar correo" : "Send email"}
                       >
-                        {personalInfo.location}
+                        <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Tarjeta 2: WhatsApp */}
+                  <div 
+                    onClick={() => window.open(personalInfo.contact.whatsappUrl, '_blank')}
+                    className="group flex items-center justify-between gap-2 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-card border border-border/50 transition-all duration-300 hover:border-green-500/50 hover:shadow-md cursor-pointer active:scale-[0.98] active:bg-muted/50"
+                  >
+                    <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+                      <div className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-xl bg-green-500/10 flex items-center justify-center text-green-500 group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
+                        {/* NOTA: Si en el paso anterior creaste e importaste WhatsAppIcon, puedes cambiar MessageCircle por WhatsAppIcon aquí */}
+                        <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 group-hover:scale-110 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[10px] sm:text-xs text-muted-foreground font-medium mb-0.5 group-hover:text-foreground transition-colors truncate">
+                          {language === "es" ? "WhatsApp Directo" : "WhatsApp Direct"}
+                        </p>
+                        <p className="text-xs sm:text-sm md:text-base font-bold text-foreground truncate">
+                          {personalInfo.contact.phone}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-1 sm:gap-2 shrink-0" onClick={(e) => e.stopPropagation()}>
+                      <CopyButton textToCopy={personalInfo.contact.phone} />
+                      <a 
+                        href={personalInfo.contact.whatsappUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="p-1.5 sm:p-2 rounded-lg text-muted-foreground hover:text-green-500 hover:bg-green-500/10 transition-colors"
+                        title={language === "es" ? "Enviar mensaje" : "Send message"}
+                      >
+                        <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Tarjeta 3: Llamada Telefónica */}
+                  <div 
+                    onClick={() => window.open(personalInfo.contact.phoneUrl, '_self')}
+                    className="group flex items-center justify-between gap-2 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-card border border-border/50 transition-all duration-300 hover:border-purple-500/50 hover:shadow-md cursor-pointer active:scale-[0.98] active:bg-muted/50"
+                  >
+                    <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+                      <div className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
+                        <Phone className="h-5 w-5 sm:h-6 sm:w-6 group-hover:scale-110 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[10px] sm:text-xs text-muted-foreground font-medium mb-0.5 group-hover:text-foreground transition-colors truncate">
+                          {language === "es" ? "Llamada Telefónica" : "Phone Call"}
+                        </p>
+                        <p className="text-xs sm:text-sm md:text-base font-bold text-foreground truncate">
+                          {personalInfo.contact.phone}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-1 sm:gap-2 shrink-0" onClick={(e) => e.stopPropagation()}>
+                      <CopyButton textToCopy={personalInfo.contact.phone} />
+                      <a 
+                        href={personalInfo.contact.phoneUrl} 
+                        target="_self" 
+                        className="p-1.5 sm:p-2 rounded-lg text-muted-foreground hover:text-purple-500 hover:bg-purple-500/10 transition-colors"
+                        title={language === "es" ? "Llamar" : "Call"}
+                      >
+                        <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
                       </a>
                     </div>
                   </div>
                 </div>
+
               </div>
 
               {/* Botón de CV Secundario */}
-              <div className="mt-8 pt-6 border-t border-border/50">
+              <div className="mt-6 pt-4 border-t border-border/50">
                 <a href={personalInfo.cvUrl} target="_blank" rel="noopener noreferrer">
-                  <Button variant="primary" className="w-full rounded-xl py-5 text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30">
+                  <Button className="w-full rounded-xl py-5 text-base font-semibold hover:bg-blue-700/90 text-white shadow-lg shadow-blue-900/20 text-base">
                     <Download className="mr-2 h-4 w-4" />
-                    {language === "es" ? "Descargar Currículum" : "Download Resume"}
+                    {language === "es" ? "Descargar CV" : "Download Resume"}
                   </Button>
                 </a>
               </div>
             </Card>
 
             {/* Redes Sociales Rápidas */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-4 gap-4">
               {socialLinks.map((link) => (
                 <a 
                   key={link.name} 
                   href={link.url} 
                   target="_blank" 
-                  className="h-12 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group shadow-xl"
+                  className="h-12 rounded-xl bg-card border border-border flex items-center justify-center text-gray hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group shadow-xl"
                   aria-label={link.name}
                 >
                   <link.icon className="h-5 w-5 group-hover:scale-115 transition-transform" />

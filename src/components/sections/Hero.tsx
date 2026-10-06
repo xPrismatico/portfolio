@@ -121,7 +121,7 @@ return (
               <motion.span
                 animate={{ opacity: [1, 0, 1] }}
                 transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-                className="ml-1 w-[2px] h-5 sm:h-6 bg-blue-600 dark:bg-blue-400 inline-block"
+                className="ml-0 w-[2px] h-5 sm:h-6 bg-blue-600 dark:bg-blue-400 inline-block"
               />
             </h2>
           </motion.div>
@@ -135,7 +135,7 @@ return (
             {about[language]}
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-3 pt-2 w-full md:w-auto">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-3 pt-1 w-full md:w-auto">
             <a href="#contact" className="w-full sm:w-auto">
               <Button size="md" className="group w-full sm:w-auto rounded-full bg-primary hover:bg-blue-700 text-white shadow-lg shadow-blue-900/20 text-base">
                 <Mail className="mr-2 h-4 w-4" />
@@ -143,7 +143,7 @@ return (
               </Button>
             </a>
             <a href={cvUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button variant="outline" size="md" className="group w-full sm:w-auto rounded-full border-2 border-primary/20 hover:border-primary hover:bg-primary/5 text-foreground text-base">
+              <Button variant="outline" size="md" className="group w-full sm:w-auto rounded-full border-2 border-primary/30 hover:border-primary hover:bg-primary/5 text-foreground text-base">
                 <Download className="mr-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
                 {language === "es" ? "Descargar CV" : "Download CV"}
               </Button>

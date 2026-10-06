@@ -14,12 +14,17 @@ import {
   Rocket,
   Users,
   Award,
-  Globe,     
+  Globe,       
   Gamepad2,  
   Terminal,  
   Monitor,    
-  Eye         
-} from "lucide-react";
+  Eye,
+  MessageCircle
+} from "lucide-react"; 
+
+
+
+
 import { Certification, Experience, Project, SkillCategory, SocialLink, Stat, Highlight} from "@/interfaces";
 
 // --- CONSTANTES DE RUTAS (Tus carpetas en public) ---
@@ -199,6 +204,7 @@ export const personalInfo = {
     email: "srfuentesavila@gmail.com",
     phone: "+56 9 5839 1079",
     phoneUrl: "tel:+56958391079", // Formato para llamar al hacer clic
+    whatsappUrl: "https://wa.me/56958391079?text=Hola%20Samuel,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20hablar%20contigo.",
   }
 };
 
@@ -214,6 +220,11 @@ export const socialLinks: SocialLink[] = [
     // Asegúrate de usar https:// para que funcione como enlace externo
     url: "https://www.linkedin.com/in/samuel-fuentes-ávila", 
     icon: Linkedin,
+  },
+  {
+    name: "WhatsApp",
+    url: personalInfo.contact.whatsappUrl,
+    icon: MessageCircle,
   },
   {
     name: "Email",

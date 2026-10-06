@@ -108,14 +108,33 @@ export default function About() {
             className="lg:col-span-2 space-y-6"
           >
             
-            {/* Biografía */}
-            <div className="prose dark:prose-invert max-w-none text-muted-foreground">
-              <p className="text-lg leading-relaxed">
-                {language === "es" 
-                  ? "Me especializo en desarrollo full stack y análisis de datos con experiencia automatizando procesos. Soy apasionado por la ingeniería de software, desarrollo web/móvil y ciencia de datos. Destaco por mi sólida base técnica en informática aplicando buenas prácticas, principios de ingeniería de software y metodologías ágiles en proyectos. Mi valor combina ingeniería y habilidades humanas: mi vocación enseñando programación y matemáticas consolida comunicación efectiva, aprendizaje continuo, trabajo en equipo y liderazgo (respaldado por mi rol activo en cursos, proyectos y competencias); Asimismo, dibujar potencia mi visión de diseño UX/UI, creatividad y atención al detalle. Me motiva crear soluciones innovadoras que respondan necesidades reales y aporten valor estratégico con arquitecturas limpias, sistemas escalables, eficientes y seguros. "
-                  : "I specialize in fullstack development and data analysis, with experience in automating processes. I am passionate about software engineering, web/mobile development, and data science. I stand out for my solid technical foundation in computer science, applying best practices, software engineering principles, and agile methodologies to projects. My value lies in combining engineering and interpersonal skills: my passion for teaching programming and mathematics fosters effective communication, continuous learning, teamwork, and leadership (supported by my active role in courses, projects, and competitions); additionally, drawing enhances my UX/UI design vision, creativity, and attention to detail. I am motivated to create innovative solutions that address real needs and deliver strategic value through clean architectures and scalable, efficient, and secure systems."
-                }
-                </p>
+            {/* Biografía interactiva y destacada */}
+            <div className="prose dark:prose-invert max-w-none text-muted-foreground text-lg leading-relaxed space-y-5">
+              {language === "es" ? (
+                <>
+                  <p>
+                    Me especializo en <span className="font-semibold text-blue-500 dark:text-blue-400">desarrollo full stack</span> y <span className="font-semibold text-blue-500 dark:text-blue-400">análisis de datos</span>, con sólida experiencia en la automatización de procesos. Soy un apasionado por la <strong className="text-foreground">ingeniería de software</strong> y la creación de arquitecturas limpias, escalables y seguras.
+                  </p>
+                  <p>
+                    Mi mayor valor diferenciador es la combinación de ingeniería con fuertes <strong className="text-foreground">habilidades humanas</strong>. Mi vocación enseñando programación y matemáticas consolida mi <span className="text-foreground font-medium border-b-2 border-blue-500/30">comunicación efectiva, liderazgo y trabajo en equipo</span>, respaldado por mi rol activo en la universidad, proyectos y hackatones.
+                  </p>
+                  <p>
+                    Además, mi afición por el dibujo potencia mi visión en <strong className="text-foreground">diseño UX/UI, creatividad y atención al detalle</strong>. Me motiva construir <strong className="text-foreground">soluciones innovadoras</strong> que respondan a necesidades reales y aporten un <span className="font-semibold text-blue-500 dark:text-blue-400">valor estratégico medible</span>.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    I specialize in <span className="font-semibold text-blue-500 dark:text-blue-400">fullstack development</span> and <span className="font-semibold text-blue-500 dark:text-blue-400">data analysis</span>, with solid experience in process automation. I am passionate about <strong className="text-foreground">software engineering</strong> and building clean, scalable, and secure architectures.
+                  </p>
+                  <p>
+                    My greatest differentiator is combining engineering with strong <strong className="text-foreground">interpersonal skills</strong>. My passion for teaching programming and mathematics fosters my <span className="text-foreground font-medium border-b-2 border-blue-500/30">effective communication, leadership, and teamwork</span>, supported by my active role in university, projects, and hackathons.
+                  </p>
+                  <p>
+                    Furthermore, my background in drawing enhances my <strong className="text-foreground">UX/UI design, creativity, and attention to detail</strong>. I am driven to build <strong className="text-foreground">innovative solutions</strong> that address real needs and deliver <span className="font-semibold text-blue-500 dark:text-blue-400">measurable strategic value</span>.
+                  </p>
+                </>
+              )}
             </div>
 
             {/* Áreas de Especialización */}
