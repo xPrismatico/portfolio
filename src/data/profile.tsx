@@ -188,7 +188,7 @@ export const personalInfo = {
   name: "Samuel Fuentes Ávila",
   profileImage: PATHS.profile,
   role: {
-    es: "Ingeniero de Software y Desarrollador Fullstack",
+    es: "Ingeniero de Software Fullstack",
     en: "Software Engineer & Fullstack Developer"
   },
   location: "Antofagasta, Chile",

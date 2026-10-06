@@ -34,17 +34,17 @@ return (
           <defs>
             {/* Patrón 1: Estrellas pequeñas esparcidas asimétricamente */}
             <pattern id="stars-1" x="0" y="0" width="250" height="250" patternUnits="userSpaceOnUse">
-              <circle cx="40" cy="40" r="1.5" fill="#8ba4ff" opacity="0.5" />
+              <circle cx="40" cy="40" r="1.5" fill="#8ba4ff" opacity="0.6" />
               <circle cx="180" cy="60" r="2" fill="#8ba4ff" opacity="1" />
-              <circle cx="90" cy="160" r="1" fill="#8ba4ff" opacity="0.5" />
-              <circle cx="220" cy="200" r="1.5" fill="#8ba4ff" opacity="0.6" />
+              <circle cx="90" cy="160" r="1" fill="#8ba4ff" opacity="0.6" />
+              <circle cx="220" cy="200" r="1.5" fill="#8ba4ff" opacity="0.7" />
             </pattern>
             {/* Patrón 2: Estrellas medianas con otra escala para romper repetición */}
             <pattern id="stars-2" x="0" y="0" width="350" height="350" patternUnits="userSpaceOnUse">
-              <circle cx="120" cy="80" r="2" fill="#8ba4ff" opacity="0.6" />
-              <circle cx="280" cy="130" r="2.5" fill="#8ba4ff" opacity="0.2" />
-              <circle cx="60" cy="250" r="1.5" fill="#8ba4ff" opacity="0.8" />
-              <circle cx="230" cy="310" r="1" fill="#8ba4ff" opacity="0.7" />
+              <circle cx="120" cy="80" r="2" fill="#8ba4ff" opacity="0.7" />
+              <circle cx="280" cy="130" r="2.5" fill="#8ba4ff" opacity="0.3" />
+              <circle cx="60" cy="250" r="1.5" fill="#8ba4ff" opacity="0.9" />
+              <circle cx="230" cy="310" r="1" fill="#8ba4ff" opacity="0.8" />
             </pattern>
           </defs>
           
@@ -66,15 +66,16 @@ return (
       </div>
 
       {/* Contenedor Principal: Ajusté el px para que en móvil no aplaste el contenido */}
-      <div className="container mx-auto grid grid-cols-1 items-center gap-8 px-4 md:grid-cols-2 md:px-12 lg:px-20 xl:px-32">        
+      <div className="container mx-auto grid grid-cols-1 items-center gap-1 px-4 md:grid-cols-2 md:px-12 lg:px-20 xl:px-46">        
+        
         {/* --- COLUMNA 1: TEXTO --- */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="order-2 md:order-1 flex flex-col items-center text-center md:items-start md:text-left space-y-6"
+          className="order-2 md:order-1 flex flex-col items-center text-center md:items-start md:text-left space-y-3"
         >
-          <motion.div variants={itemVariants} className="space-y-4 max-w-2xl">
+          <motion.div variants={itemVariants} className="space-y-1 max-w-2xl">
             {/* Etiqueta "Hola, soy" flotante */}
             <div className="flex justify-center md:justify-start">
                  <motion.span 
@@ -86,9 +87,9 @@ return (
                  </motion.span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-tight">
-              <span className="block text-foreground">{name.split(" ")[0]}</span> 
-              <span className="block bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent pb-1">
+            <h1 className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-none md:leading-tight">
+              <span className="text-foreground">{name.split(" ")[0]+" "}</span> 
+              <span className="sm:block bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent pb-1">
                 {name.split(" ").slice(1).join(" ")}
               </span>
             </h1>
@@ -174,7 +175,7 @@ return (
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="order-1 md:order-2 relative flex justify-center md:justify-end mb-8 md:mb-0"
+          className="order-1 md:order-2 relative flex justify-center md:justify-end mb-3 md:mb-0"
         >
           {/* Aura Orgánica que "respira" y gira (Opacidad e intensidad aumentadas) */}
           <motion.div 
@@ -188,7 +189,7 @@ return (
           />
 
           {/* Tamaños ajustados: En "md" se reduce para evitar superposición con el texto */}
-          <div className="relative h-[260px] w-[260px] sm:h-[300px] sm:w-[300px] md:h-[300px] md:w-[300px] lg:h-[380px] lg:w-[380px] shrink-0">
+          <div className="relative h-[200px] w-[200px] sm:h-[260px] sm:w-[260px] md:h-[300px] md:w-[300px] lg:h-[380px] lg:w-[380px] shrink-0">
             {/* Anillo exterior rotatorio segmentado */}
             <motion.div 
               animate={{ rotate: 360 }}
@@ -248,7 +249,9 @@ return (
             </motion.div>
           </div>
         </motion.div>
+
       </div>
+
       {/* Flecha Scroll */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce text-muted-foreground/50 hover:text-primary transition-colors cursor-pointer hidden md:block">
         <a href="#about" aria-label="Scroll down">
